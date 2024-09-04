@@ -10,7 +10,7 @@ body{
   
   .nav{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding:1%;
     background-color: rgb(166, 49, 212); 
@@ -40,6 +40,7 @@ body{
     color: aliceblue;
     font-size: 300%;
     padding: 1% 0;
+    margin-left: 46.5%;
     text-decoration: none;
   }
   
@@ -55,9 +56,18 @@ body{
   /* texto */
   
   .a{
+    padding: .2%;
     color: aliceblue;
+    background-color: rgb(166, 49, 212);
+    border-radius: 15px;
     text-decoration: none;
     font-size: 150%;
+    left: 40%;
+  }
+
+  .a:hover{
+    color: aliceblue;
+    text-decoration: underline aliceblue;
   }
   
   h1 {
@@ -85,7 +95,6 @@ body{
     flex-direction: row;
     justify-content: space-around;
   }
-  
   
   .carta{
     margin: .6% 3%;
