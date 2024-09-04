@@ -1,0 +1,229 @@
+/* body */
+
+body{
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+  /* nav */
+  
+  .nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1%;
+    background-color: rgb(166, 49, 212); 
+  }
+  
+  .selecciones{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .selecciones a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 200%;
+    padding: 0.2%;
+    transition: .1s
+  }
+  
+  .selecciones a:hover{
+    text-decoration: underline;
+    transition: .1s;
+    font-size: 250%;
+  }
+  
+  .titulo{
+    color: aliceblue;
+    font-size: 300%;
+    padding: 1% 0;
+    text-decoration: none;
+  }
+  
+  .titulo:hover{
+    color: aliceblue;
+    font-size: 300%;
+    padding: 1% 0;
+    text-decoration: none;
+  }
+  
+  /* rgb(166, 49, 212); */
+  
+  /* texto */
+  
+  .a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 150%;
+  }
+  
+  h1 {
+    display: inline-block;
+    padding: .5%;
+    border-radius: 20px;
+    margin-left: 46%;
+    color: aliceblue;
+    background-color: rgb(166, 49, 212);
+    font-size: 300%;
+  }
+  
+  h2{
+    display: flex;
+    font-size: 250%;
+    font-weight: 180;
+    justify-content: center;
+    text-decoration: underline rgb(166, 49, 212); 
+  }
+  
+  /* cards */
+  
+  .roww{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  
+  .carta{
+    margin: .6% 3%;
+    width: 50%;
+    transition: .3s;
+  }
+  
+  .carta:hover{
+    transition: .3s;
+    width: 60%;
+    border: 1px solid rgb(166, 49, 212);
+    border-radius: 10px;
+  }
+  
+  .roww .carta img{
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .cpadding{
+    margin: 4%;
+  }
+  
+  /* formulario */
+  
+  .container h2{
+   font-size: 270%;
+  }
+  
+  .container label{
+    font-size: 140%;
+  }
+  
+  form{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  input{
+    width: 30em;
+  }
+  
+  input, textarea{
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  label {
+    color: white;
+    display: block;
+    font-weight: 500;
+    font-size: 200%;
+  }
+  
+  hr{
+    background-color: aliceblue;
+    max-width: 55%;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  
+  input {
+    width: 100%;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    resize: none;
+    overflow: auto;
+  }
+  
+  button {
+    color: grey;
+    border: none;
+    border-radius: 4px;
+    padding: 1%;
+    margin: 0 2%;
+    font-size: 130%;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .1s;
+  }
+  
+  button:hover {
+    color: rgb(166, 49, 212);
+    transition: .1s;
+    font-size: 150%;
+  }
+  
+  .container {
+    border: 1px solid #ccc;
+    backdrop-filter: blur(10px);
+    border-radius: 1%;
+    padding: 6%;
+    width: 120%;
+  }
+  
+  .container h1{
+    color: white;
+  }
+  
+  .form-control {
+    margin-bottom: 2%;
+  }
+  
+  .input-group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .input-group label{
+    margin: 1% 0 2% 0;
+  }
+  
+  .justificado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* footer */
+  
+  footer{
+    display: flex;
+    justify-content: center;
+    font-size: 110%;
+    font-weight: 300;
+    position: fixed;
+    width: 100%;
+    top: 90;
+    bottom: 0;
+    padding: .5% 0;
+    background-color: rgb(83, 83, 83);
+    color: aliceblue;
+    user-select: none;
+  }
