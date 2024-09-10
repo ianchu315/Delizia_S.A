@@ -7,3 +7,30 @@
 //         activeItem.classList.add('slide-in');
 //     });
 // });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionar todos los checkboxes
+    const checkboxes = document.querySelectorAll('#menu-form input[type="checkbox"]');
+    const totalElement = document.getElementById('total');
+
+    // Función para calcular el total
+    function calcularTotal() {
+        let total = 0;
+
+        // Recorrer todos los checkboxes y sumar los valores seleccionados
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                total += parseFloat(checkbox.value);
+            }
+        });
+
+        // Actualizar el total en el DOM
+        totalElement.textContent = total.toFixed(2);
+    }
+
+    // Añadir un evento de cambio a cada checkbox para recalcular el total
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', calcularTotal);
+    });
+});
+

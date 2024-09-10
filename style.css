@@ -235,6 +235,113 @@
   visibility: visible;
   opacity: 1;
 }
+
+/* bares */
+
+.h2{
+  background-color: rgb(166, 49, 212);
+  border-radius: 17px;
+  color: aliceblue;
+  font-size: 300%;
+  padding: 1%;
+  margin-left: 22%;
+}
+
+h4{
+  font-size: 300%;
+  width: 100%;
+  margin-left: 40%;
+  text-decoration: underline rgb(166, 49, 212); 
+}
+
+.row{
+  margin-left: 17%;
+}
+
+.pagar{
+  
+  color: aliceblue;
+  background-color: rgb(166, 49, 212);
+  margin: 2%;
+  transition: .2s;
+}
+
+.pagar:hover{
+  transition: .2;
+  color: aliceblue;
+  font-weight: bold;
+  resize: none;
+}
+
+.container {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.comidas, .bebidas {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 30%;
+  justify-content: space-evenly;
+  margin: 1% 5%;
+  align-items: stretch;
+}
+
+#menu-form{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 3% 0;
+  margin-left: 20%;
+}
+
+#menu-form hr{
+  color: black;
+  width: 70%;
+}
+
+#menu-form .menu-item label, #menu-form .menu-item input{
+  padding: 2% 8%;
+  color: rgb(31, 31, 31);
+}
+
+#menu-form .menu-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: center;
+}
+
+.menu-item input[type="checkbox"] {
+  transform: scale(2);
+  margin-right: 8px;
+}
+
+.justificadoo{
+  margin-right: 17%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.justificadoo .hr{
+  color: black;
+  width: 70%;
+  margin-left: 32.6%;
+}
   
   /* formulario */
   
@@ -335,9 +442,9 @@
   
   .justificado{
     display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
   }
   
   /* footer */
