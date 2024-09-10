@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Actualizar el total en el DOM
-        totalElement.textContent = total.toFixed(2);
+        // Formatear el total con comas cada tres dígitos
+        totalElement.textContent = total.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+        // Mensaje de depuración
+        console.log("Total actualizado:", total);
     }
 
     // Añadir un evento de cambio a cada checkbox para recalcular el total
@@ -33,4 +36,5 @@ document.addEventListener("DOMContentLoaded", function() {
         checkbox.addEventListener('change', calcularTotal);
     });
 });
+
 

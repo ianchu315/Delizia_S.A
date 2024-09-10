@@ -247,33 +247,32 @@
   color: aliceblue;
   font-size: 300%;
   padding: 1%;
-  margin-left: 22%;
+  margin-left: 20%;
 }
 
 h4{
   font-size: 300%;
   width: 100%;
-  margin-left: 40%;
-  text-decoration: underline rgb(166, 49, 212); 
 }
 
 .row{
   margin-left: 17%;
 }
 
-.pagar{
-  
-  color: aliceblue;
-  background-color: rgb(166, 49, 212);
-  margin: 2%;
-  transition: .2s;
+.total{
+  display: flex;
+  margin-left: 18%;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.pagar:hover{
-  transition: .2;
+.total button{
   color: aliceblue;
-  font-weight: bold;
-  resize: none;
+  background-color: rgb(166, 49, 212);
+}
+
+.total button:hover{
+  color:aliceblue;
 }
 
 .container {
@@ -303,7 +302,7 @@ h4{
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 3% 0;
+  padding: 1% 0;
   margin-left: 20%;
 }
 
