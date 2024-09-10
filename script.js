@@ -37,4 +37,69 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+//let currentTheme = getDefaultTheme();
+//setTheme(currentTheme);
+//
+//addButtonThemeListener();
 
+/**
+ * Listens for the click of the button and execute the theme change
+**/
+//function addButtonThemeListener() {
+//  const buttonToggler = document.querySelector("[data-theme-toggle]");
+//  buttonToggler.addEventListener("click", () => {
+//	  const newTheme = getNewTheme(currentTheme);
+//		setTheme(newTheme);
+//		currentTheme = newTheme;
+//    saveTheme(newTheme);
+//  });
+//}
+
+/**
+ * Get the default theme for the user
+ * @return {String} theme - the theme of the user
+ *
+**/
+//function getDefaultTheme() {
+//  const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+//  const systemSettingTheme = systemSettingDark.matches ? "dark" : "light";
+//  const savedTheme = getSavedTheme();
+//  return savedTheme ? savedTheme : systemSettingTheme;
+//}
+
+/**
+ * Returns the new theme
+ * @param {String} theme - the current app theme, dark or light
+ *
+**/
+//function getNewTheme(theme) {
+//	return theme === "dark" ? "light" : "dark";
+//}
+
+/**
+ * Sets the theme globally
+ * @param {String} theme - dark or light
+ *
+**/
+//function setTheme(theme) {
+//  const html = document.querySelector("html");
+//  html.setAttribute("data-theme", theme);
+//}
+
+/**
+ * Returns the theme saved in memory
+ * @return {String} theme - the saved theme
+ *
+**/
+//function getSavedTheme() {
+//  return localStorage.getItem("theme");
+//}
+
+/**
+ * Saves theme in memory
+ * @return {String} theme - the theme to save
+ *
+**/
+//function saveTheme(theme) {
+//  localStorage.setItem("theme", theme);
+//}
