@@ -1,18 +1,63 @@
 /* body */
 
-  body{
+body{
     margin: 0;
     padding: 0;
   }
 
-  #carouselExampleControls{
-    width: 60%;
-    margin-left: 20%;
+  /* texto */
+  
+  .a{
+    padding: .2%;
+    border-radius: 15px;
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 150%;
+    left: 40%;
+  }
+
+  .a:hover{
+    color: aliceblue;
+    text-decoration: underline aliceblue;
   }
   
-  /* nav */
+  h1 {
+    display: inline-block;
+    padding: .5%;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 300%;
+  }
   
-  .nav{
+  h2{
+    display: flex;
+    font-size: 250%;
+    font-weight: 180;
+    justify-content: center;
+    text-decoration: underline rgb(166, 49, 212); 
+  }
+
+  .titulo-login{
+    display: flex;
+    font-size: 600%;
+    margin-left: 43%;
+    align-items: center;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: 'Aussten';
+    user-select: none;
+  }
+  
+  @font-face {
+    font-family: 'Aussten';
+    src: url('fuente/Austten.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+/* nav */
+
+.nav{
     background-image: url(img/wood\ texture.jpg);
     display: flex;
     flex-wrap: wrap;
@@ -74,58 +119,6 @@
     text-decoration: underline aliceblue;
   }
 
-  /* rgb(166, 49, 212); */
-  
-  /* texto */
-  
-  .a{
-    padding: .2%;
-    border-radius: 15px;
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 150%;
-    left: 40%;
-  }
-
-  .a:hover{
-    color: aliceblue;
-    text-decoration: underline aliceblue;
-  }
-  
-  h1 {
-    display: inline-block;
-    padding: .5%;
-    border-radius: 20px;
-    color: aliceblue;
-    font-size: 300%;
-  }
-  
-  h2{
-    display: flex;
-    font-size: 250%;
-    font-weight: 180;
-    justify-content: center;
-    text-decoration: underline rgb(166, 49, 212); 
-  }
-
-  .titulo-login{
-    display: flex;
-    font-size: 600%;
-    margin-left: 43%;
-    align-items: center;
-    color: aliceblue;
-    text-decoration: none;
-    font-family: 'Aussten';
-    user-select: none;
-  }
-  
-  @font-face {
-    font-family: 'Aussten';
-    src: url('fuente/Austten.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-  }
-
   /* cards */
   
   .roww{
@@ -141,7 +134,7 @@
     width: 50%;
     transition: .3s;
   }
-  
+     
   .carta:hover{
     transition: .3s;
     width: 60%;
@@ -179,7 +172,7 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  background: rgba(77, 77, 77, .7);
+  backdrop-filter: blur(5px);
   transition: all 0.5s;
 }
 
@@ -196,9 +189,8 @@
 
 .modal-content{
   padding: 3%;
-  position: relative;
-  width: 30%;
-  height: auto;
+  width: 60%;
+  height: 80%;
   background: white;
   border-radius: 20px;
   box-shadow: 0 0 5px rgba(0 0 0 / .15);
@@ -238,130 +230,125 @@
   visibility: visible;
   opacity: 1;
 }
-  
-  /* formulario */
-  
-  .container h2{
-   font-size: 270%;
-  }
-  
-  .container label{
-    font-size: 140%;
-  }
-  
-  form{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  input{
-    width: 30em;
-  }
-  
-  input, textarea{
-    border-radius: 10px;
-    outline: none;
-  }
-  
-  label {
-    color: white;
-    display: block;
-    font-weight: 500;
-    font-size: 200%;
-  }
-  
-  hr{
-    background-color: aliceblue;
-    max-width: 55%;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  
-  input {
-    width: 100%;
-    padding: 2%;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    font-size: 16px;
-    resize: none;
-    overflow: auto;
-  }
-  
-  button {
-    color: grey;
-    border: none;
-    border-radius: 4px;
+
+  /* menu */
+
+  .h2{
+    background-color: rgb(166, 49, 212);
+    border-radius: 17px;
+    color: aliceblue;
+    font-size: 170%;
     padding: 1%;
-    margin: 0 2%;
-    font-size: 130%;
-    font-weight: 500;
-    cursor: pointer;
-    transition: .1s;
+    margin-left: 20%;
   }
   
-  button:hover {
-    color: rgb(166, 49, 212);
-    transition: .1s;
-    font-size: 150%;
+  h4{
+    font-size: 250%;
+    width: 100%;
   }
   
-  .container {
-    border: 1px solid #ccc;
-    backdrop-filter: blur(10px);
-    border-radius: 1%;
-    padding: 6%;
-    width: 120%;
+  .row{
+    margin-left: 17%;
+  }
+
+  .pagar{
+    padding: 1%;
   }
   
-  .container h1{
-    color: white;
+  .total{
+    display: flex;
+    margin-left: 18%;
+    flex-direction: column;
+    justify-content: center;
   }
   
-  .form-control {
+  .total button{
+    color: aliceblue;
+    background-color: rgb(166, 49, 212);
+  }
+  
+  .total button:hover{
+    color:aliceblue;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
     margin-bottom: 2%;
   }
   
-  .input-group{
+  .comidas, .bebidas {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    flex-wrap: nowrap;
+    width: 30%;
+    justify-content: space-evenly;
+    margin: 1% 8%;
+    align-items: stretch;
   }
   
-  .input-group label{
-    margin: 1% 0 2% 0;
-  }
-
-  .justificado{
+  #menu-form{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-  }
-
-  .sesion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* footer */
-  
-  footer{
-    display: flex;
-    justify-content: center;
-    font-size: 110%;
-    font-weight: 300;
-    position: fixed;
     width: 100%;
-    top: 90;
-    bottom: 0;
-    padding: .5% 0;
-    background-color: rgb(83, 83, 83);
-    color: aliceblue;
-    user-select: none;
+    padding: 1% 0;
+    margin-left: 5%;
   }
+  
+  #menu-form hr{
+    color: black;
+    width: 70%;
+  }
+  
+  #menu-form .menu-item label, #menu-form .menu-item input{
+    padding: 2% 8%;
+    color: rgb(31, 31, 31);
+  }
+  
+  #menu-form .menu-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: center;
+  }
+  
+  .menu-item input[type="checkbox"]{
+    transform: scale(2);
+    margin-right: 8px;
+  }
+  
+  .justificadoo{
+    margin-right: 17%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .justificadoo .hr{
+    color: black;
+    width: 70%;
+    margin-left: 32.6%;
+  }
+
+/* footer */
+  
+footer{
+        display: flex;
+        justify-content: center;
+        font-size: 110%;
+        font-weight: 300;
+        position: fixed;
+        width: 100%;
+        top: 90;
+        bottom: 0;
+        padding: .5% 0;
+        background-color: rgb(83, 83, 83);
+        color: aliceblue;
+        user-select: none;
+    }
