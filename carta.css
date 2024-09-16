@@ -20,6 +20,15 @@ body{
     color: aliceblue;
     text-decoration: underline aliceblue;
   }
+
+  .aa{
+    color: rgb(166, 49, 212);
+  }
+
+  .aa:hover{
+    color: rgb(166, 49, 212);
+    text-decoration: none;
+  }
   
   h1 {
     display: inline-block;
@@ -77,7 +86,7 @@ body{
   .selecciones a{
     color: aliceblue;
     text-decoration: none;
-    font-size: 200%;
+    font-size: 160%;
     padding: .6% .2%;
     transition: .1s
   }
@@ -127,39 +136,61 @@ body{
     color: aliceblue;
     font-size: 170%;
     padding: 1%;
-    margin-left: 20%;
+    margin-left: 28%;
   }
   
   h4{
-    font-size: 250%;
+    font-size: 170%;
     width: 100%;
   }
   
   .row{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 26%;
+  }
+
+  .columna{
+    margin: 2% 1%;
+  }
+
+  .columna .checkbox{
+    size: 25%;
   }
 
   .pagar{
     padding: 1%;
+    width: 20%;
+    transition: .2s;
+    border: none;
+  }
+  
+  .pagar:hover{
+    transition: .2s;
+    width: 25%;
   }
   
   .total{
     display: flex;
-    margin-left: 18%;
+    flex-wrap: wrap;
+    padding: 1%;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    color: aliceblue;
+    background-color: rgb(166, 49, 212);
+    width: 20%;
+    position: fixed;
+    top: 78%;
+    left: 76%;
   }
   
   .total button{
-    color: aliceblue;
-    background-color: rgb(166, 49, 212);
-  }
-  
-  .total button:hover{
-    color:aliceblue;
+    margin-top: 2%;
+    border-radius: 15px;
+    color: rgb(166, 49, 212);
   }
   
   .menu-item {
@@ -209,9 +240,9 @@ body{
     align-items: center;
   }
   
-  .menu-item input[type="checkbox"]{
-    transform: scale(2);
-    margin-right: 8px;
+  .columna input[type="checkbox"]{
+    transform: scale(1.3);
+    margin-left: 1%;
   }
   
   .justificadoo{
