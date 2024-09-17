@@ -157,6 +157,7 @@
   
   .roww .carta img{
     border-radius: 10px 10px 0 0;
+    width: 100%;
   }
   
   .cpadding{
@@ -314,6 +315,7 @@
     color: rgb(166, 49, 212);
     transition: .1s;
     font-size: 150%;
+    border: none;
   }
   
   .container {
