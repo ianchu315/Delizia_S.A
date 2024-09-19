@@ -82,21 +82,77 @@ body{
     justify-content: space-around;
     width: 100%;
   }
-  
-  .selecciones a{
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 160%;
-    padding: .6% .2%;
-    transition: .1s
-  }
-  
-  .selecciones a:hover{
-    text-decoration: underline rgb(166, 49, 212);
-    transition: .1s;
-    font-size: 250%;
+
+  .selecciones button{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1%;
+    overflow: hidden;
   }
 
+  .selecciones button a{
+    color: aliceblue;
+    text-decoration: none;
+  }
+
+  .selecciones span:nth-child(1){
+    position: absolute;
+    background: rgb(166, 49, 212);
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: -100%;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(2){
+    position: absolute;
+    background: rgb(166, 49, 212);
+    width: 100%;
+    height: 3px;
+    top: 0;
+    right: -100%;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(3){
+    position: absolute;
+    background: rgb(166, 49, 212);
+    width: 3px;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(4){
+    position: absolute;
+    background: rgb(166, 49, 212);
+    width: 3px;
+    height: 100%;
+    bottom: -100%;
+    right: 0;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones button:hover span:nth-child(1){
+    left: 0;
+  }
+  
+  .selecciones button:hover span:nth-child(2){
+    right: 0;
+  }
+
+  .selecciones button:hover span:nth-child(3){
+    top: 0;
+  }
+
+  .selecciones button:hover span:nth-child(4){
+    bottom: 0;
+  }
+  
   .titulo{
     display: flex;
     font-size: 400%;
@@ -242,6 +298,7 @@ body{
   }
   
   .columna input[type="checkbox"]{
+    accent-color: rgb(166, 49, 212);
     transform: scale(1.3);
     margin-left: 1%;
   }
