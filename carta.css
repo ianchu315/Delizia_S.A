@@ -1,25 +1,169 @@
-/* body */
-
-body{
-  margin: 0;
-  padding: 0;
-  }
-
-  /* texto */
+ /* nav */
   
-  .a{
-    padding: .2%;
-    border-radius: 15px;
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 150%;
-    left: 40%;
-  }
+ .nav{
+  background-image: url(img/wood\ texture.jpg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3%;
+  background-color: rgb(166, 49, 212); 
+}
 
-  .a:hover{
-    color: aliceblue;
-    text-decoration: underline aliceblue;
-  }
+.titulo{
+  display: flex;
+  font-size: 400%;
+  margin-left: 46%;
+  align-items: center;
+  color: aliceblue;
+  text-decoration: none;
+  font-family: 'Aussten';
+  user-select: none;
+  text-shadow: 0px 0px 10px rgb(166, 49, 212),
+               0px 0px 20px rgb(166, 49, 212),
+               0px 0px 40px rgb(166, 49, 212),
+               0px 0px 80px rgb(166, 49, 212);
+              
+}
+
+.titulo:hover{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.cerrar_se{
+  margin-right: 3.5%;
+}
+
+.cerrar_se .a{
+  color: aliceblue;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.cerrar_se a{
+  font-size: 100%
+}
+
+.cerrar_se img{
+  width: 4%;
+  margin-right: 6.5%;
+}
+
+.cerrar_se:hover{
+  text-decoration: underline aliceblue;
+}
+
+.selecciones{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.selecciones button{
+  position: relative;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 1%;
+  overflow: hidden;
+}
+
+.selecciones button a{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.selecciones span:nth-child(1){
+  position: absolute;
+  background: rgb(166, 49, 212);
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: -100%;
+  transition: .5s ease-in-out;
+}
+
+.selecciones span:nth-child(2){
+  position: absolute;
+  background: rgb(166, 49, 212);
+  width: 100%;
+  height: 3px;
+  top: 0;
+  right: -100%;
+  transition: .5s ease-in-out;
+}
+
+.selecciones span:nth-child(3){
+  position: absolute;
+  background: rgb(166, 49, 212);
+  width: 3px;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  transition: .5s ease-in-out;
+}
+
+.selecciones span:nth-child(4){
+  position: absolute;
+  background: rgb(166, 49, 212);
+  width: 3px;
+  height: 100%;
+  bottom: -100%;
+  right: 0;
+  transition: .5s ease-in-out;
+}
+
+.selecciones button:hover span:nth-child(1){
+  left: 0;
+}
+
+.selecciones button:hover span:nth-child(2){
+  right: 0;
+}
+
+.selecciones button:hover span:nth-child(3){
+  top: 0;
+}
+
+.selecciones button:hover span:nth-child(4){
+  bottom: 0;
+}
+
+@font-face {
+  font-family: 'Aussten';
+  src: url('fuente/Austten.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+button {
+  color: grey;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 1%;
+  margin: 0 2%;
+  font-size: 130%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .1s;
+}
+
+button:hover {
+  color: rgb(166, 49, 212);
+  transition: .1s;
+  font-size: 150%;
+  
+  
+}
+
+/* rgb(166, 49, 212); */
+
+  /* menu */
 
   .aa{
     color: rgb(166, 49, 212);
@@ -28,163 +172,14 @@ body{
   .aa:hover{
     color: rgb(166, 49, 212);
     text-decoration: none;
-  }
-  
-  h1 {
-    display: inline-block;
-    padding: .5%;
-    border-radius: 20px;
-    color: aliceblue;
-    font-size: 300%;
-  }
-  
-  h2{
-    display: flex;
-    font-size: 250%;
-    font-weight: 180;
-    justify-content: center;
-    text-decoration: underline rgb(166, 49, 212); 
-  }
-
-  .titulo-login{
-    display: flex;
-    font-size: 600%;
-    margin-left: 43%;
-    align-items: center;
-    color: aliceblue;
-    text-decoration: none;
-    font-family: 'Aussten';
-    user-select: none;
-  }
-  
-  @font-face {
-    font-family: 'Aussten';
-    src: url('fuente/Austten.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-  }
-
-/* nav */
-
-.nav{
-    background-image: url(img/wood\ texture.jpg);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3%;
-    background-color: rgb(166, 49, 212); 
-  }
-  
-  .selecciones{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .selecciones button{
-    position: relative;
-    background-color: transparent;
-    outline: none;
     border: none;
-    padding: 1%;
-    overflow: hidden;
+    outline: none;
   }
 
-  .selecciones button a{
-    color: aliceblue;
-    text-decoration: none;
+  b{
+    font-size: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
-
-  .selecciones span:nth-child(1){
-    position: absolute;
-    background: rgb(166, 49, 212);
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: -100%;
-    transition: .5s ease-in-out;
-  }
-
-  .selecciones span:nth-child(2){
-    position: absolute;
-    background: rgb(166, 49, 212);
-    width: 100%;
-    height: 3px;
-    top: 0;
-    right: -100%;
-    transition: .5s ease-in-out;
-  }
-
-  .selecciones span:nth-child(3){
-    position: absolute;
-    background: rgb(166, 49, 212);
-    width: 3px;
-    height: 100%;
-    top: -100%;
-    left: 0;
-    transition: .5s ease-in-out;
-  }
-
-  .selecciones span:nth-child(4){
-    position: absolute;
-    background: rgb(166, 49, 212);
-    width: 3px;
-    height: 100%;
-    bottom: -100%;
-    right: 0;
-    transition: .5s ease-in-out;
-  }
-
-  .selecciones button:hover span:nth-child(1){
-    left: 0;
-  }
-  
-  .selecciones button:hover span:nth-child(2){
-    right: 0;
-  }
-
-  .selecciones button:hover span:nth-child(3){
-    top: 0;
-  }
-
-  .selecciones button:hover span:nth-child(4){
-    bottom: 0;
-  }
-  
-  .titulo{
-    display: flex;
-    font-size: 400%;
-    margin-left: 44%;
-    align-items: center;
-    color: aliceblue;
-    text-decoration: none;
-    font-family: 'Aussten';
-    user-select: none;
-  }
-  
-  .titulo:hover{
-    color: aliceblue;
-    text-decoration: none;
-  }
-
-  .cerrar_se .a{
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-  }
-
-  .cerrar_se img{
-    width: 5%;
-    margin-right: 10%;
-  }
-
-  .cerrar_se:hover{
-    text-decoration: underline aliceblue;
-  }
-
-  /* menu */
 
   .h2{
     background-color: rgb(166, 49, 212);
@@ -193,6 +188,14 @@ body{
     font-size: 170%;
     padding: 1%;
     margin-left: 28%;
+  }
+
+  h2{
+    display: flex;
+    font-size: 250%;
+    font-weight: 180;
+    justify-content: center;
+    text-decoration: underline rgb(166, 49, 212); 
   }
   
   h4{
@@ -245,6 +248,7 @@ body{
   }
   
   .total button{
+    padding: 1%;
     margin-top: 2%;
     border-radius: 15px;
     color: rgb(166, 49, 212);
@@ -310,20 +314,3 @@ body{
     justify-content: center;
     align-items: center;
   }
-
-/* footer */
-  
-footer{
-  display: flex;
-  justify-content: center;
-  font-size: 110%;
-  font-weight: 300;
-  position: fixed;
-  width: 100%;
-  top: 90;
-  bottom: 0;
-  padding: .5% 0;
-  background-color: rgb(83, 83, 83);
-  color: aliceblue;
-  user-select: none;
-}
