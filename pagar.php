@@ -43,6 +43,49 @@
         </div>
 
     </header>
+    
+    <div style="display: flex; justify-content: center;">
+        <div style="width: 50%;">
+            <?php
+            if(isset($_POST["comida"])){
+                echo "<h5>Comida</h5>";
+                $con = 0;
+                if(count($_POST["comida"])){
+                    foreach($_POST["comida"] as $value){
+                        $nombre = $_POST["nombres"][$con];
+                        echo $nombre;
+                        echo " - $value <br/>";
+                        $con += 1;
+                    }
+                }
+            }else{
+                echo "<h5>Comida</h5>";
+                echo "No se ha seleccionado ningun elemento <br/>";
+            }
+
+            if(isset($_POST["bebida"])){
+                echo "<br/><h5>Bebida</h5>";
+                $con = 0;
+                if(count($_POST["bebida"])){
+                    foreach($_POST["bebida"] as $value){
+                        $nombre = $_POST["nombres2"][$con];
+                        echo $nombre;
+                        echo " - $value <br/>";
+                        $con += 1;
+                    }
+                }
+            }else{
+                echo "<h5>Bebida</h5>";
+                echo "No se ha seleccionado ningun elemento <br/>";
+            }
+            
+            $total = 0;
+            $total = $_POST["total"];
+            echo "<br/><h5>Total a pagar</h5>";
+            echo "$total <br/> ";
+        ?>
+        </div>
+    </div>
 
     <br>
     <br>

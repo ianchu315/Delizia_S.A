@@ -1,16 +1,9 @@
-// // Añadir animación a las imágenes del carrusel cuando se deslizan
-// document.addEventListener('DOMContentLoaded', function () {
-//     $('#carouselExampleControls').on('slid.bs.carousel', function () {
-//         const items = document.querySelectorAll('.carousel-item');
-//         items.forEach(item => item.classList.remove('slide-in'));
-//         const activeItem = document.querySelector('.carousel-item.active');
-//         activeItem.classList.add('slide-in');
-//     });
-// });
+
+// funcion de autosuma
 
 document.addEventListener("DOMContentLoaded", function() {
     // Seleccionar todos los checkboxes
-    const checkboxes = document.querySelectorAll('#menu-form input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('#menu-form input[class="checkbox"]');
     const totalElement = document.getElementById('total');
 
     // Función para calcular el total
@@ -29,13 +22,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Mensaje de depuración
         console.log("Total actualizado:", total);
+        document.getElementById('carracatoa').value = total;
     }
 
     // Añadir un evento de cambio a cada checkbox para recalcular el total
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', calcularTotal);
-    });
+    });    
 });
+
+function checks(id){
+    if(document.getElementById(id).checked == false){
+        document.getElementById(id).checked = true;
+    }else{
+        document.getElementById(id).checked = false;
+    }
+    
+}
 
 //let currentTheme = getDefaultTheme();
 //setTheme(currentTheme);

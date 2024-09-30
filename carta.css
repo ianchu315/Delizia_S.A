@@ -140,6 +140,13 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'Modern';
+  src: url('fuente/MOD20.TTF');
+  font-style: normal;
+  font-weight: normal;
+}
+
 button {
   color: grey;
   outline: none;
@@ -177,8 +184,8 @@ button:hover {
   }
 
   b{
-    font-size: 20%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 70%;
+    font-family: 'Modern';
   }
 
   .h2{
@@ -202,6 +209,11 @@ button:hover {
     font-size: 170%;
     width: 100%;
   }
+
+  h5{
+    text-decoration: underline rgb(166, 49, 212);
+    font-weight: 500;
+  }
   
   .row{
     display: flex;
@@ -223,6 +235,8 @@ button:hover {
     width: 20%;
     transition: .2s;
     border: none;
+    color: rgb(166, 49, 212);
+    border-radius: 5px;
   }
   
   .pagar:hover{

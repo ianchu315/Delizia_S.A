@@ -1,4 +1,6 @@
 {
     "liveServer.settings.port": 5501,
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "editor.wordWrap": "on",
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe"
 }
