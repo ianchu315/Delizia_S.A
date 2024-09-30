@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +17,7 @@
         <a href="inicio.html" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
-            <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
+            <a class="a" href="cerrar.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
 
         <div id="tema">
