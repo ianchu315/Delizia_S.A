@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,7 +37,11 @@
                     <input type="text" name="Nombre" id="Nombre">
     
                     <label for="Password">Contraseña</label>
-                    <input name="contraseña" id="contraseña">
+                    
+                    <div style="position: relative;">
+                        <input type="password" name="contraseña" id="contraseña">
+                         <i class="ri-eye-off-line login__eye" id="inputIcon"></i>   
+                     </div> 
                 </div>
     
                 <br>
@@ -54,6 +59,56 @@
     <br>
     <br>
     <br>
+
+    <style>
+        .login__eye {
+            width: max-content;
+            height: max-content;
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            margin-top: -25px;
+            bottom: 0;
+            margin: auto 0;
+            font-size: 1.25rem;
+            cursor: pointer;
+          }
+
+          .login__input {
+            width: 100%;
+            padding: 14px 12px;
+            border-radius: 6px;
+            border: 2px solid var(--text-color);
+            background-color: hsla(244, 16%, 92%, 0.6);
+            color: var(--title-color);
+            font-size: var(--smaller-font-size);
+            font-weight: var(--font-medium);
+            transition: border 0.4s;
+          }
+    </style>
+
+    <script>
+
+        const showHiddenPass = (inputPass, inputIcon) =>{
+            const input = document.getElementById(inputPass),
+                  icon = document.getElementById(inputIcon)
+                  
+            icon.addEventListener('click', () =>{
+                if(input.type === 'password'){
+                    input.type = 'text'
+                    icon.classList.add('ri-eye-line')
+                    icon.classList.remove('ri-eye-off-line')
+                }else{
+                    input.type = 'password'
+                    icon.classList.remove('ri-eye-line')
+                    icon.classList.add('ri-eye-off-line')
+                }
+            })
+         }
+         
+         showHiddenPass('contraseña','inputIcon')
+
+    </script>
 
     <footer>
         Delizia &copy; 2024 - Todos los derechos reservados
