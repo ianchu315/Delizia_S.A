@@ -172,7 +172,7 @@ button:hover {
 
   /* menu */
 
-  .aa{
+  /* .aa{
     color: rgb(166, 49, 212);
   }
 
@@ -327,4 +327,20 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  } */
+
+
+  .footer-real{
+    display: flex;
+    justify-content: center;
+    font-size: 110%;
+    font-weight: 300;
+    position: fixed;
+    width: 100%;
+    top: 90;
+    bottom: 0;
+    padding: .5% 0;
+    background-color: rgb(83, 83, 83);
+    color: aliceblue;
+    user-select: none;
   }

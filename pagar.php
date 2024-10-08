@@ -46,43 +46,56 @@
     
     <div style="display: flex; justify-content: center;">
         <div style="width: 50%;">
-            <?php
-            if(isset($_POST["comida"])){
-                echo "<h5>Comida</h5>";
-                $con = 0;
-                if(count($_POST["comida"])){
-                    foreach($_POST["comida"] as $value){
-                        $nombre = $_POST["nombres"][$con];
-                        echo $nombre;
-                        echo " - $value <br/>";
-                        $con += 1;
-                    }
-                }
-            }else{
-                echo "<h5>Comida</h5>";
-                echo "No se ha seleccionado ningun elemento <br/>";
-            }
 
-            if(isset($_POST["bebida"])){
-                echo "<br/><h5>Bebida</h5>";
-                $con = 0;
-                if(count($_POST["bebida"])){
-                    foreach($_POST["bebida"] as $value){
-                        $nombre = $_POST["nombres2"][$con];
-                        echo $nombre;
-                        echo " - $value <br/>";
-                        $con += 1;
-                    }
-                }
-            }else{
-                echo "<h5>Bebida</h5>";
-                echo "No se ha seleccionado ningun elemento <br/>";
-            }
+            <div class="container mt-5 justify-content-center text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Pedido</h2>
+                        <p id="pedidos">pedidos</p>
+                        <h2 class="card-title">Precio total</h2>
+                        <p id="precio">Precio</p>
+                        <button class="btn btn-success">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <?php
+
+            // if(isset($_POST["comida"])){
+            //     echo "<h5>Comida</h5>";
+            //     $con = 0;
+            //     if(count($_POST["comida"])){
+            //         foreach($_POST["comida"] as $value){
+            //             $nombre = $_POST["nombres"][$con];
+            //             echo $nombre;
+            //             echo " - $value <br/>";
+            //             $con += 1;
+            //         }
+            //     }
+            // }else{
+            //     echo "<h5>Comida</h5>";
+            //     echo "No se ha seleccionado ningun elemento <br/>";
+            // }
+
+            // if(isset($_POST["bebida"])){
+            //     echo "<br/><h5>Bebida</h5>";
+            //     $con = 0;
+            //     if(count($_POST["bebida"])){
+            //         foreach($_POST["bebida"] as $value){
+            //             $nombre = $_POST["nombres2"][$con];
+            //             echo $nombre;
+            //             echo " - $value <br/>";
+            //             $con += 1;
+            //         }
+            //     }
+            // }else{
+            //     echo "<h5>Bebida</h5>";
+            //     echo "No se ha seleccionado ningun elemento <br/>";
+            // }
             
-            $total = 0;
-            $total = $_POST["total"];
-            echo "<br/><h5>Total a pagar</h5>";
-            echo "$total <br/> ";
+            // $total = 0;
+            // $total = $_POST["total"];
+            // echo "<br/><h5>Total a pagar</h5>";
+            // echo "$total <br/> ";
         ?>
         </div>
     </div>
@@ -99,6 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
+    <script src="./prueba.js"></script>
 
 </body>
 </html>
