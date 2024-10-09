@@ -9,6 +9,8 @@ include 'Conexion.php';
 
 $conexion = new Conexion();
 
+// funcionamiento de loggin
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['crear'])) {
         $usuario = $_POST['usuario'];

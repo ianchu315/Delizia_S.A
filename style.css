@@ -416,6 +416,11 @@
     justify-content: center;
     align-items: center;
   }
+
+  #inputIcon{
+    
+    margin: 0 1% 4% 0;
+  }
   
   /* footer */
   
