@@ -120,6 +120,15 @@
                     </div>
                 </div>
             </article>
+            <article class="col-sm-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">McPolla</h5>
+                        <p class="lead">$10.000</p> 
+                        <button class="btn btn-primary btn-sm" data-comida="sorrentino de jamon y queso" data-precio="10000"">Agregar</button>
+                    </div>
+                </div>
+            </article>
         </div>
 
         <h2 style="text-align: center;">Bebidas</h2>
