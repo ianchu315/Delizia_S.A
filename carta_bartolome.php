@@ -14,7 +14,7 @@
         <a href="inicio.html" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
-            <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
+            <a class="a" href="login.html"><img src="./img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
 
         <div class="selecciones">
@@ -42,6 +42,10 @@
             </button>
         </div>
     </header>
+
+    <div class="text-center p-2 mt-4">
+        <h1 class="bg-secondary">Comedor Bartolome</h1>
+    </div>
 
     <div class="row">
         <main class="mt-5 col-8">
@@ -249,7 +253,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
     
 </body>
 </html>

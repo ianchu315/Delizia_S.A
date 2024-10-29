@@ -1,44 +1,14 @@
 [
     {
-        "titulo": "cintas verdes",
-        "id": "cintas verdes",
-        "cantidad": 1,
-        "precio": 8000
+        "titulo": "medialuna",
+        "id": "medialuna",
+        "cantidad": 4,
+        "precio": 650
     },
     {
-        "titulo": "tallarines",
-        "id": "tallarines",
-        "cantidad": 1,
-        "precio": 8000
-    },
-    {
-        "titulo": "MAc&Cheese",
-        "id": "MAc&Cheese",
-        "cantidad": 1,
-        "precio": 8000
-    },
-    {
-        "titulo": "\u00d1oquis de papa",
-        "id": "\u00d1oquis de papa",
-        "cantidad": 1,
-        "precio": 8500
-    },
-    {
-        "titulo": "Sorrentinos de calabaza",
-        "id": "Sorrentinos de calabaza",
-        "cantidad": 1,
-        "precio": 9800
-    },
-    {
-        "titulo": "Sorrentinos Jamon y Queso",
-        "id": "Sorrentinos Jamon y Queso",
-        "cantidad": 1,
-        "precio": 10000
-    },
-    {
-        "titulo": "Malfatti de espinaca y ricotta",
-        "id": "Malfatti de espinaca y ricotta",
-        "cantidad": 1,
-        "precio": 10000
+        "titulo": "Medialuna rellena de dulce de leche",
+        "id": "Medialuna rellena de dulce de leche",
+        "cantidad": 2,
+        "precio": 1200
     }
 ]

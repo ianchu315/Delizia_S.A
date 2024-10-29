@@ -1,28 +1,21 @@
 <?php
 
-class Conexion {
-    private $servidor = "localhost";
-    private $usuario = "root";
-    private $contraseña = "";
-    private $conexion;
+class Database {
+    private $db;
+  
 
     public function __construct() {
-        try {
-            $this->conexion = new PDO("mysql:host=$this->servidor;dbname=prueba", $this->usuario, $this->contraseña);
-            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Falla de conexión: " . $e->getMessage();
-        }
-    }
+      try{
+        $this->db=new PDO('sqlite:delizzia,db');
 
-    public function prepare($sql) {
-        return $this->conexion->prepare($sql);
+        $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+      }catch(PDOException $e){
+        echo "Error de conexion:".$e->getMessage();
+        exit;
     }
-    
-    public function consultar($sql) {
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        return $sentencia->fetchAll();
+    }
+    public function getDB(){
+        return $this->db;
     }
 }
 ?>

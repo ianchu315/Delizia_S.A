@@ -20,29 +20,20 @@ session_start();
             <a class="a" href="cerrar.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
 
-        <div id="tema">
-            <button class="dark-togller" 
-            aria-label="Toggle color mode" 
-            title="Toggle color mode" 
-            data-theme-toggle>
-            <div class="toggler-icon"></div>
-        </button>
-        </div>
-
         <div class="selecciones">
             <button>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="restaurantes.html">Restaurantes</a>
+                <a href="./inicio.html">inicio</a>
             </button>
             <button>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="heladeria.html">Heladeria</a>
+                <a href="#locales">Locales</a>
 
             </button>
             <button>
@@ -50,7 +41,7 @@ session_start();
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="cafeteria.html">Cafeteria</a>
+                <a href="cafeteria.html">Contactanos</a>
             </button>
         </div>
 
@@ -90,16 +81,16 @@ session_start();
     <br>
 
     <!-- Sección de Locales -->
-    <section class="conteeiner">
+    <section id="locales" class="conteeiner">
         <h2 class="Locales">Locales</h2>
         <div class="roww">
             <!-- Locales cards -->
                     <div class="carta">
                             <img src="img/hamburgueseria.jpg" class="card-img-top" alt="Restaurante 1">
                             <div class="cpadding">
-                                <h5 class="card-title">A & G</h5>
+                                <h5 class="card-title">Nautilus</h5>
                                 <p class="card-text">Disfruta de una experiencia gastronómica única en un ambiente acogedor y moderno</p>
-                                <a href="#MyModal" class="btn btn-primary">Ver más</a>
+                                <a href="./nautilus.php" class="btn btn-secondary">Hacer pedido!</a>
                             </div>
                     </div>
 
@@ -109,7 +100,7 @@ session_start();
                         <div class="cpadding">
                             <h5 class="card-title">Felicia</h5>
                             <p class="card-text">Relájate y diviértete con nuestra combinación irresistible de helados artesanales y cócteles innovadores</p>
-                            <a href="#MyModa2" class="btn btn-primary">Ver más</a>
+                            <a href="./felicia.html" class="btn btn-secondary">Hacer pedido!</a>
                         </div>
                 </div>
 
@@ -119,14 +110,14 @@ session_start();
                     <div class="cpadding">
                         <h5 class="card-title">Comedor Bartolomé</h5>
                         <p class="card-text">Sumérgete en una experiencia única donde cada bocado y sorbo te transportan a un momento de pura felicidad.</p>
-                        <a href="#MyModa3" class="btn btn-primary">Ver más</a>
+                        <a href="./carta_bartolome.php" class="btn btn-secondary">Hacer pedido!</a>
                     </div>
             </div>
                     
         </div>
     </section>
 
-    <div id="MyModal"class="modal">
+    <!-- <div id="MyModal"class="modal">
         <div class="modal-content">
             <div class="close-btn">
                 <a class="modal_close" href="#">&times;</a>
@@ -181,7 +172,7 @@ session_start();
             <a href="https://www.google.com.ar/maps/place/Comedor+Bartolom%C3%A9/@-33.3281398,-60.2165334,20.75z/data=!4m6!3m5!1s0x95b767f6beb407e1:0xb795262dda1bb324!8m2!3d-33.3283256!4d-60.2164707!16s%2Fg%2F11pvhrx77q?hl=es&entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">¿Como llegar?</a>
 
         </div>
-    </div>
+    </div> -->
 
     <br>
     <br>
@@ -194,6 +185,6 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
