@@ -1,0 +1,14 @@
+[
+    {
+        "titulo": "medialuna",
+        "id": "medialuna",
+        "cantidad": 4,
+        "precio": 650
+    },
+    {
+        "titulo": "Medialuna rellena de dulce de leche",
+        "id": "Medialuna rellena de dulce de leche",
+        "cantidad": 2,
+        "precio": 1200
+    }
+]
