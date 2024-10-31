@@ -1,21 +1,13 @@
 <?php
+$databaseFile = 'delizia.db';
 
-class Database {
-    private $db;
-  
-
-    public function __construct() {
-      try{
-        $this->db=new PDO('sqlite:delizzia,db');
-
-        $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-      }catch(PDOException $e){
-        echo "Error de conexion:".$e->getMessage();
-        exit;
-    }
-    }
-    public function getDB(){
-        return $this->db;
-    }
+try {
+    // Crear conexión a la base de datos
+    $pdo = new PDO("sqlite:" . $databaseFile);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
+    exit(); // Termina la ejecución si hay un error de conexión
 }
 ?>
+

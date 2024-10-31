@@ -7,7 +7,7 @@ let carritoArray = [];
 
 // Delegación de eventos:
 document.addEventListener("click", (e) => {
-    if (e.target.matches(".list button")) {
+    if (e.target.matches(".card .text-center button")) {
         agregarCarrito(e);
     }
 

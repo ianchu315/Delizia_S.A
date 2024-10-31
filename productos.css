@@ -1,4 +1,15 @@
+/* body */
 
+body{
+    margin: 0;
+    padding: 0;
+  }
+
+  #carouselExampleControls{
+    width: 60%;
+    margin-left: 20%;
+  }
+  
   /* nav */
   
   .nav{
@@ -159,12 +170,13 @@
   .titulo-login{
     display: flex;
     font-size: 600%;
-    margin-left: 43%;
     align-items: center;
     color: aliceblue;
     text-decoration: none;
     font-family: 'Aussten';
     user-select: none;
+    text-align: center;
+    justify-content: center;
   }
   
   @font-face {
@@ -174,8 +186,9 @@
     font-weight: normal;
   }
 
- 
-  .footer-real{
+  
+  
+  footer{
     display: flex;
     justify-content: center;
     font-size: 110%;
@@ -185,7 +198,6 @@
     top: 90;
     bottom: 0;
     padding: .5% 0;
-    background-color: rgb(83, 83, 83);
+    background-color: #333;
     color: aliceblue;
-    user-select: none;
   }
