@@ -1,7 +1,8 @@
 [
     {
-        "nombre": "medialuna",
-        "descripcion": "dulce o salada",
-        "precio": 850
+        "id": "6723cf0d1b51a",
+        "nombre": "Chocotorta",
+        "descripcion": "Chocolina con dulce de leche",
+        "precio": 1
     }
 ]

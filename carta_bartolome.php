@@ -27,7 +27,7 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
             <span></span>
             <span></span>
             <span></span>
-            <a href="inicio.html">Inicio</a>
+            <a href="inicio.php">Inicio</a>
         </button>
         <button>
             <span></span>
@@ -174,74 +174,87 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
         }
 
         async function loadBebidas() {
-            const response = await fetch('arestaurantbebidas.json');
-            const apiData = await response.json();
+    const response = await fetch('arestaurantbebidas.json');
+    const apiData = await response.json();
 
-            apiData.forEach(item => {
-                const template = document.getElementById('template-card-dos').content.cloneNode(true);
-                template.querySelector('.card-title').textContent = item.nombreb;
-                template.querySelector('.desc').textContent = item.descripcionb;
-                template.querySelector('.price').textContent = `$${item.preciob}`;
-                
-                let quantitySpan = template.querySelector('.quantity');
-                let quantity = 0;
+    apiData.forEach(item => {
+        const template = document.getElementById('template-card-dos').content.cloneNode(true);
+        template.querySelector('.card-title').textContent = item.nombreb;
+        template.querySelector('.desc').textContent = item.descripcionb;
+        template.querySelector('.price').textContent = `$${item.preciob}`;
+        
+        let quantitySpan = template.querySelector('.quantity');
+        let quantity = 0;
 
-                template.querySelector('.plus').addEventListener('click', () => {
-                    quantity++;
-                    quantitySpan.textContent = quantity;
-                });
+        // Incrementar cantidad
+        template.querySelector('.plus').addEventListener('click', () => {
+            quantity++;
+            quantitySpan.textContent = quantity;
+        });
 
-                template.querySelector('.minus').addEventListener('click', () => {
-                    if (quantity > 0) {
-                        quantity--;
-                        quantitySpan.textContent = quantity;
-                    }
-                    if (quantity === 0) {
-                        cancelCartItem(item);
-                    }
-                });
+        // Decrementar cantidad
+        template.querySelector('.minus').addEventListener('click', () => {
+            if (quantity > 0) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+            }
+            // Asegurarse de que al llegar a 0, el producto no esté en el carrito
+            if (quantity === 0) {
+                cancelCartItem(item); // Asegúrate de que esta función maneje correctamente la eliminación
+            }
+        });
 
-                template.querySelector('.add-to-cart').addEventListener('click', () => {
-                    addToCart(item, quantity, quantitySpan);
-                });
-                cardDinamicaDos.appendChild(template);
-            });
-        }
+        // Agregar al carrito
+        template.querySelector('.add-to-cart').addEventListener('click', () => {
+            if (quantity > 0) {
+                addToCart(item, quantity, quantitySpan);
+            } else {
+                alert("Debes seleccionar una cantidad antes de agregar al carrito.");
+            }
+        });
 
-        function addToCart(item, quantity, quantitySpan) {
+        cardDinamicaDos.appendChild(template);
+    });
+}
+
+function addToCart(item, quantity, quantitySpan) {
     if (quantity > 0) {
-        // Cambia esta línea para buscar el índice basado en la descripción
         const cartItemIndex = cart.findIndex(cartItem => 
-            (cartItem.descripcion === item.descripcion || cartItem.descripcionb === item.descripcionb)
+            (cartItem.nombre === item.nombre || cartItem.nombreb === item.nombreb)
         );
 
+        // Determina el precio correcto según el tipo de item
+        const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
+
         if (cartItemIndex > -1) {
-            // Si el elemento ya existe, actualiza la cantidad
+            // Si el elemento ya existe, actualiza la cantidad y el total
             cart[cartItemIndex].cantidad += quantity;
+            totalAmount += itemPrice * quantity; // Sumar al total
         } else {
             // Si no existe, agrégalo al carrito con la cantidad
             cart.push({ ...item, cantidad: quantity });
+            totalAmount += itemPrice * quantity; // Sumar al total
         }
 
-        // Actualiza el total
-        totalAmount += item.precio * quantity;
+        // Actualiza la interfaz
         updateTotal();
         renderCart();
         quantitySpan.textContent = 0; // Reiniciar cantidad en la interfaz
     } else {
         alert('Selecciona una cantidad válida');
     }
-        }
+}
 
         function cancelCartItem(item) {
-    // Busca el índice del item en el carrito, considerando platos y bebidas
+    // Busca el índice del item en el carrito
     const cartItemIndex = cart.findIndex(cartItem => (cartItem.nombre === item.nombre || cartItem.nombreb === item.nombreb));
     
     if (cartItemIndex > -1) {
         // Determina el precio correcto basado en si es un plato o bebida
         const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
 
-        totalAmount -= itemPrice * cart[cartItemIndex].cantidad; // Restar el total del item
+        // Resta del total el precio del item multiplicado por la cantidad en el carrito
+        totalAmount -= itemPrice * cart[cartItemIndex].cantidad; // Resta el total del item
         cart.splice(cartItemIndex, 1); // Elimina el item del carrito
         updateTotal(); // Actualiza el total
         renderCart(); // Renderiza el carrito
@@ -271,7 +284,6 @@ function renderCart() {
             <button class="btn btn-danger btn-sm remove" data-name="${item.nombre || item.nombreb}">Eliminar</button>
         `;
         cartContainer.appendChild(cartItem); // Agrega el item al contenedor
-
         // Agrega un evento de click para eliminar el item
         cartContainer.querySelectorAll('.remove').forEach(button => {
             button.addEventListener('click', () => {

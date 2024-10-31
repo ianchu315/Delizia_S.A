@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $precio = floatval(trim($_POST['precio']));
 
         $archivoAgregar = [
+            'id' => uniqid(),
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'precio' => $precio
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $preciob = floatval(trim($_POST['preciob']));
 
         $archivoAgregarBebida = [
+            'id' => uniqid(),
             'nombreb' => $nombreb,
             'descripcionb' => $descripcionb,
             'preciob' => $preciob
@@ -77,8 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message .= " Error al guardar los datos de bebida.";
         }
     }
-
-    // Eliminar Comida
     if (isset($_POST['eliminar_nombre'])) {
         $nombreAEliminar = $_POST['eliminar_nombre'];
         $rutaArchivo = 'aheladeria.json';
@@ -100,7 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Eliminar Bebida
     if (isset($_POST['eliminar_nombreb'])) {
         $nombrebAEliminar = $_POST['eliminar_nombreb'];
         $rutaArchivoBebidas = 'aheladeriabebidas.json';
@@ -137,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <header class="nav">
 
-        <a href="inicio.html" class="titulo">Delizia</a>
-
+        <a href="" class="titulo">Delizia</a>
+        <a href="llegaheladeria.php" class="titulo">Comanda</a>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>

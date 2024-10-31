@@ -1,27 +1,8 @@
 [
     {
-        "nombreb": "batido",
-        "descripcionb": "chocolate, vainilla",
-        "preciob": 2999
-    },
-    {
-        "nombreb": "batido",
-        "descripcionb": "chocolate, vainilla",
-        "preciob": 2999
-    },
-    {
-        "nombreb": "batido",
-        "descripcionb": "chocolate, vainilla",
-        "preciob": 2999
-    },
-    {
-        "nombreb": "batido",
-        "descripcionb": "chocolate, vainilla",
-        "preciob": 2999
-    },
-    {
-        "nombreb": "batido",
-        "descripcionb": "chocolate, vainilla",
-        "preciob": 2999
+        "id": "6723cf9876046",
+        "nombreb": "Batido de banana",
+        "descripcionb": "batido de banana con leche de soya y chocolate",
+        "preciob": 5
     }
 ]

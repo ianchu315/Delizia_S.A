@@ -1,7 +1,8 @@
 [
     {
-        "nombre": "helado de agua",
-        "descripcion": "frutal",
-        "precio": "600"
+        "id": "6723f89973aa8",
+        "nombre": "Helado Suizo",
+        "descripcion": "Chcolate con vainilla y frutilla cubierta de chocolate",
+        "precio": 4
     }
 ]

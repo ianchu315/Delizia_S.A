@@ -1,12 +1,8 @@
 [
     {
-        "nombreb": "Agua saborizada",
-        "descripcionb": "Manzana o Naranja",
-        "preciob": 1000
-    },
-    {
-        "nombreb": "Coca Cola",
-        "descripcionb": "Gaseosa",
-        "preciob": 1400
+        "id": "6723d40d992bb",
+        "nombreb": "Sprite",
+        "descripcionb": "sprite de vidrio de 2 litros",
+        "preciob": 5
     }
 ]

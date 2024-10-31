@@ -4,13 +4,12 @@ header('Content-Type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Ruta del archivo donde se guardarán los pedidos
-$filePath = 'cartabartolome.json';
+$filePath = 'cartanautilus.json';
 
 // Comprobar si el archivo existe
 if (!file_exists($filePath)) {
     file_put_contents($filePath, json_encode([])); // Crea un archivo vacío si no existe
 }
-
 $currentOrders = json_decode(file_get_contents($filePath), true);
 
 // Agregar el nuevo pedido
@@ -23,4 +22,3 @@ if (file_put_contents($filePath, json_encode($currentOrders))) {
     echo json_encode(['success' => false, 'error' => 'No se pudo guardar el pedido.']);
 }
 ?>
-

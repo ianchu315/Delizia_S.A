@@ -51,6 +51,7 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
     $preciob = floatval(trim($_POST['preciob']));
 
         $archivoAgregarBebida = [
+            'id' => uniqid(),
             'nombreb' => $nombreb,
             'descripcionb' => $descripcionb,
             'preciob' => $preciob
@@ -140,7 +141,7 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
 <header class="nav">
 
         <a href="acafeteria.php" class="titulo">Delizia</a>
-
+        <center><a href="llegacafe.php" class="titulo">Comanda</a></center>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>

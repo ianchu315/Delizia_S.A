@@ -8,13 +8,13 @@ $preciob = "";
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Agregar Comida
     if (isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['precio'])) {
         $nombre = htmlspecialchars(trim($_POST['nombre']));
         $descripcion = htmlspecialchars(trim($_POST['descripcion']));
         $precio = floatval(trim($_POST['precio']));
 
         $archivoAgregar = [
+            'id' => uniqid(),
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'precio' => $precio
@@ -41,15 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = "Error al guardar los datos de comida.";
         }
     }
-
-    // Agregar Bebida
-    // Procesar el formulario de bebidas
 if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['preciob'])) {
     $nombreb = htmlspecialchars(trim($_POST['nombreb']));
     $descripcionb = htmlspecialchars(trim($_POST['descripcionb']));
     $preciob = floatval(trim($_POST['preciob']));
 
         $archivoAgregarBebida = [
+            'id' => uniqid(),
             'nombreb' => $nombreb,
             'descripcionb' => $descripcionb,
             'preciob' => $preciob
@@ -79,7 +77,6 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
         }
 }
 
-    // Eliminar Comida
     if (isset($_POST['eliminar_nombre'])) {
         $nombreAEliminar = $_POST['eliminar_nombre'];
         $rutaArchivo = 'arestaurant.json';
@@ -101,7 +98,6 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
         }
     }
 
-    // Eliminar Bebida
     if (isset($_POST['eliminar_nombreb'])) {
         $nombrebAEliminar = $_POST['eliminar_nombreb'];
         $rutaArchivoBebidas = 'arestaurantbebidas.json';
@@ -139,7 +135,7 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
 <header class="nav">
 
         <a href="arestaurant.php" class="titulo">Delizia</a>
-
+        <a href="llegarestaurant.php" class="titulo">Comanda</a>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>

@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Ruta del archivo donde se guardarán los pedidos
-$filePath = 'cartabartolome.json';
+$filePath = 'cartafelicia.json';
 
 // Comprobar si el archivo existe
 if (!file_exists($filePath)) {
@@ -23,4 +23,3 @@ if (file_put_contents($filePath, json_encode($currentOrders))) {
     echo json_encode(['success' => false, 'error' => 'No se pudo guardar el pedido.']);
 }
 ?>
-

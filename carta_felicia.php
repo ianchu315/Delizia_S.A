@@ -1,9 +1,16 @@
+<?php
+session_start(); 
+if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comedor Bartolomé</title>
+    <title>Heladeria Felicia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="carrito.css">
 </head>
@@ -12,7 +19,7 @@
 <header class="nav">
     <a href="inicio.php" class="titulo">Delizia</a>
     <div class="cerrar_se">
-        <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
+        <a class="a" href="login.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
     </div>
     <div class="selecciones">
         <button>
@@ -39,6 +46,13 @@
     </div>
 </header>
 
+<center>
+<div class="container my-5">
+    <h2>Selecciona la hora de tu reserva:</h2>
+    <input type="time" id="horaReserva" required min="07:00" max="23:30">
+</div>
+</center>
+
 <div class="row justify-content-center">
     <h2>Comidas</h2>
     <div class="container my-5">
@@ -52,7 +66,7 @@
                         <p class="lead price text-secondary"></p>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-danger minus">-</button>
-                            <span class="quantity mx-2">0</span>
+                            <span class="quantity mx-2" style="cursor: pointer;">0</span>
                             <button class="btn btn-success plus">+</button>
                         </div>
                         <button class="btn btn-primary add-to-cart mt-2">Añadir a la orden</button>
@@ -76,7 +90,7 @@
                         <p class="lead price text-secondary"></p>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-danger minus">-</button>
-                            <span class="quantity mx-2">0</span>
+                            <span class="quantity mx-2" style="cursor: pointer;">0</span>
                             <button class="btn btn-success plus">+</button>
                         </div>
                         <button class="btn btn-primary add-to-cart mt-2">Añadir a la orden</button>
@@ -86,9 +100,9 @@
         </template>
     </div>
 </div>  
-
 <script>
     const cart = []; 
+    let totalAmount = 0;
 
     document.addEventListener('DOMContentLoaded', () => {
         const cardDinamica = document.getElementById('card-dinamica');
@@ -107,13 +121,25 @@
                 
                 let quantitySpan = template.querySelector('.quantity');
                 let quantity = 0;
-                
+
                 template.querySelector('.plus').addEventListener('click', () => {
                     quantity++;
                     quantitySpan.textContent = quantity;
                 });
 
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item, quantity, quantitySpan));
+                template.querySelector('.minus').addEventListener('click', () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        quantitySpan.textContent = quantity;
+                    }
+                    if (quantity === 0) {
+                        cancelCartItem(item);
+                    }
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => {
+                    addToCart(item, quantity, quantitySpan);
+                });
                 cardDinamica.appendChild(template);
             });
         }
@@ -136,101 +162,144 @@
                     quantitySpan.textContent = quantity;
                 });
 
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item, quantity, quantitySpan));
+                template.querySelector('.minus').addEventListener('click', () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        quantitySpan.textContent = quantity;
+                    }
+                    if (quantity === 0) {
+                        cancelCartItem(item);
+                    }
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => {
+                    if (quantity > 0) {
+                        addToCart(item, quantity, quantitySpan);
+                    } else {
+                        alert("Debes seleccionar una cantidad antes de agregar al carrito.");
+                    }
+                });
+
                 cardDinamicaDos.appendChild(template);
             });
         }
 
         function addToCart(item, quantity, quantitySpan) {
             if (quantity > 0) {
-                // Aquí siempre añadimos un nuevo objeto al carrito
-                const cartItem = { ...item, quantity: quantity }; // Crea un nuevo objeto para el carrito
+                const cartItemIndex = cart.findIndex(cartItem => 
+                    (cartItem.nombre === item.nombre || cartItem.nombreb === item.nombreb)
+                );
 
-                // Agrega el nuevo artículo al carrito
-                cart.push(cartItem);
+                const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
+
+                if (cartItemIndex > -1) {
+                    cart[cartItemIndex].cantidad += quantity;
+                    totalAmount += itemPrice * quantity;
+                } else {
+                    cart.push({ ...item, cantidad: quantity });
+                    totalAmount += itemPrice * quantity;
+                }
 
                 updateTotal();
                 renderCart();
-                
-                // Restablecer la cantidad a 0 después de añadir al carrito
-                quantitySpan.textContent = 0; 
+                quantitySpan.textContent = 0;
+            } else {
+                alert('Selecciona una cantidad válida');
+            }
+        }
+
+        function cancelCartItem(item) {
+            const cartItemIndex = cart.findIndex(cartItem => (cartItem.nombre === item.nombre || cartItem.nombreb === item.nombreb));
+    
+            if (cartItemIndex > -1) {
+                const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
+                totalAmount -= itemPrice * cart[cartItemIndex].cantidad;
+                cart.splice(cartItemIndex, 1);
+                updateTotal();
+                renderCart();
             }
         }
 
         function updateTotal() {
-            const total = cart.reduce((acc, item) => {
-                const price = parseFloat(item.preciob || item.precio);
-                return acc + (price * item.quantity);
-            }, 0);
-            totalElement.textContent = total.toFixed(2);
+            const totalElement = document.getElementById('total');
+            if (isNaN(totalAmount) || totalAmount === null) {
+                totalAmount = 0;
+            }
+            totalElement.textContent = totalAmount.toFixed(2);
         }
 
         function renderCart() {
             const cartContainer = document.getElementById('cart-container');
             cartContainer.innerHTML = '';
 
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
+                const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
                 const cartItem = document.createElement('div');
-                cartItem.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2');
                 cartItem.innerHTML = `
-                    <span>${item.nombre || item.nombreb} - $${(item.preciob || item.precio)} x ${item.quantity}</span>
-                    <div>
-                        <button class="btn btn-secondary btn-sm mr-2" onclick="restar(${index})">Restar</button>
-                        <button class="btn btn-danger btn-sm" onclick="cancelar(${index})">Cancelar</button>
-                    </div>
+                    <p>${item.nombre || item.nombreb} - Cantidad: ${item.cantidad} - $${(itemPrice * item.cantidad).toFixed(2)}
+                    <button class="btn btn-danger btn-sm remove" data-name="${item.nombre || item.nombreb}">Eliminar</button>
                 `;
                 cartContainer.appendChild(cartItem);
+                cartContainer.querySelectorAll('.remove').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const itemName = button.getAttribute('data-name');
+                        const item = cart.find(cartItem => (cartItem.nombre === itemName || cartItem.nombreb === itemName));
+                        cancelCartItem(item);
+                    });
+                });
             });
         }
 
-        window.restar = function(index) {
-            const cartItem = cart[index];
-            if (cartItem.quantity > 1) {
-                cartItem.quantity -= 1;
-                updateTotal();
-                renderCart();
-            } else {
-                cancelar(index);
-            }
-        }
-
-        window.cancelar = function(index) {
-            cart.splice(index, 1);
-            updateTotal();
-            renderCart();
-        }
-
+        // Cargar platos y bebidas
         loadPlatos();
         loadBebidas();
     });
+
+    function saveOrder() {
+        const orderData = {
+            user: {
+                nombre: '<?php echo $_SESSION['nombre']; ?>',
+                apellido: '<?php echo $_SESSION['apellido']; ?>',
+            },
+            items: cart,
+            total: totalAmount
+        };
+
+        fetch('save_orderhelado.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Pedido guardado con éxito.');
+                cart.length = 0;
+                totalAmount = 0; 
+                updateTotal();
+                renderCart();
+            } else {
+                alert('Error al guardar el pedido.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
 </script>
-<form method="POST">
-    <label for="hora_inicio">Hora de inicio:</label>
-    <input type="time" name="hora_inicio" id="hora_inicio" required><br><br>
-    
-    <label for="mesa_id">Selecciona el número de sillas:</label>
-    <select name="mesa_id" id="mesa_id">
-        <option value="1">Mesa de 2 sillas</option>
-        <option value="2">Mesa de 4 sillas</option>
-        <option value="3">Mesa de 6 sillas</option>
-        <option value="4">Mesa de 8 sillas</option>
-    </select><br><br>
-</form>
 
 <div class="container">
-    <h3>Total: <span id="total">0.00</span></h3> <!-- Se establece un total inicial de 0.00 -->
-    <div id="cart-container"></div> <!-- Contenedor para el carrito -->
-    <button id="confirmar-pedido" class="btn btn-success">Confirmar Pedido</button>
+    <div id="cart-container"></div>
+    <div class="d-flex justify-content-between">
+        <h3>Total: $<span id="total">0.00</span></h3>
+        <button class="btn btn-success" onclick="saveOrder()">Guardar Pedido</button>
+    </div>
 </div>
-<br>
-<br>
-
-<footer class="footer-real">
-    Delizia &copy; 2024 - Todos los derechos reservados
-</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

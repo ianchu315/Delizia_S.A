@@ -38,7 +38,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="cafeteria.html">Contactanos</a>
+                <a href="contactos.php">Contactanos</a>
             </button>
         </div>
     </header>
