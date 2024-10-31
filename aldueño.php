@@ -41,35 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <header class="nav">
 
-        <a href="inicio.html" class="titulo">Delizia</a>
+        <a href="aldueño.php" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
-            <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
-        </div>
-
-        <div class="selecciones">
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="inicio.html">Inicio</a>
-            </button>
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="restaurantes.html">locales</a>
-
-            </button>
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="cafeteria.html">Cafeteria</a>
-            </button>
+            <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
 
     </header>
@@ -91,6 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class=" btn btn-secondary" type="submit">Abrir Local</button>
         </form>
     </div>
-            
+    <center>
+           <h2>Cafeteria:Nautilus_2023</h2>
+           <h2>Heladeria:Felicia_2024</h2>
+           <h2>Restaurante:Bartolome_2025</h2> 
+    </center>
 </body>
 </html>

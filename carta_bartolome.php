@@ -1,3 +1,10 @@
+<?php
+session_start(); 
+if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +46,42 @@
     </div>
 </header>
 
+<center>
+<div class="container my-5">
+    <h2>Selecciona la hora de tu reserva:</h2>
+    <input type="time" id="horaReserva" required min="07:00" max="23:30">
+</div>
+</center>
+
+<center>
+<div class="container my-5">
+    <h2>Selecciona la mesa y cantidad:</h2>
+    <select id="mesaSelect" required>
+        <option value="">Mesa y cantidad</option>
+        <option value="mesa1">Mesa 1 (2 sillas)</option>
+        <option value="mesa2">Mesa 2 (2 sillas)</option>
+        <option value="mesa3">Mesa 3 (2 sillas)</option>
+        <option value="mesa4">Mesa 4 (2 sillas)</option>
+        <option value="mesa5">Mesa 5 (2 sillas)</option>
+        <option value="mesa6">Mesa 6 (2 sillas)</option>
+        <option value="mesa7">Mesa 7 (4 sillas)</option>
+        <option value="mesa8">Mesa 8 (4 sillas)</option>
+        <option value="mesa9">Mesa 9 (4 sillas)</option>
+        <option value="mesa10">Mesa 10 (4 sillas)</option>
+        <option value="mesa11">Mesa 11 (4 sillas)</option>
+        <option value="mesa12">Mesa 12 (4 sillas)</option>
+        <option value="mesa13">Mesa 13 (6 sillas)</option>
+        <option value="mesa14">Mesa 14 (6 sillas)</option>
+        <option value="mesa15">Mesa 15 (6 sillas)</option>
+        <option value="mesa16">Mesa 16 (6 sillas)</option>
+        <option value="mesa17">Mesa 17 (8 sillas)</option>
+        <option value="mesa18">Mesa 18 (8 sillas)</option>
+        <option value="mesa19">Mesa 19 (8 sillas)</option>
+        <option value="mesa20">Mesa 20 (8 sillas)</option>
+    </select>
+</div>
+</center>
+
 <div class="row justify-content-center">
     <h2>Comidas</h2>
     <div class="container my-5">
@@ -52,7 +95,7 @@
                         <p class="lead price text-secondary"></p>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-danger minus">-</button>
-                            <span class="quantity mx-2">0</span>
+                            <span class="quantity mx-2" style="cursor: pointer;">0</span>
                             <button class="btn btn-success plus">+</button>
                         </div>
                         <button class="btn btn-primary add-to-cart mt-2">Añadir a la orden</button>
@@ -76,7 +119,7 @@
                         <p class="lead price text-secondary"></p>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-danger minus">-</button>
-                            <span class="quantity mx-2">0</span>
+                            <span class="quantity mx-2" style="cursor: pointer;">0</span>
                             <button class="btn btn-success plus">+</button>
                         </div>
                         <button class="btn btn-primary add-to-cart mt-2">Añadir a la orden</button>
@@ -86,16 +129,15 @@
         </template>
     </div>
 </div>  
-
 <script>
-    const cart = []; // Array para almacenar los platos elegidos
+    const cart = []; 
+    let totalAmount = 0;
 
     document.addEventListener('DOMContentLoaded', () => {
         const cardDinamica = document.getElementById('card-dinamica');
         const cardDinamicaDos = document.getElementById('card-dinamica-dos');
         const totalElement = document.getElementById('total');
-
-        // Función para cargar los platos desde el JSON
+        
         async function loadPlatos() {
             const response = await fetch('arestaurant.json');
             const apiData = await response.json();
@@ -105,12 +147,32 @@
                 template.querySelector('.card-title').textContent = item.nombre;
                 template.querySelector('.desc').textContent = item.descripcion;
                 template.querySelector('.price').textContent = `$${item.precio}`;
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item));
+                
+                let quantitySpan = template.querySelector('.quantity');
+                let quantity = 0;
+
+                template.querySelector('.plus').addEventListener('click', () => {
+                    quantity++;
+                    quantitySpan.textContent = quantity;
+                });
+
+                template.querySelector('.minus').addEventListener('click', () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        quantitySpan.textContent = quantity;
+                    }
+                    if (quantity === 0) {
+                        cancelCartItem(item);
+                    }
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => {
+                    addToCart(item, quantity, quantitySpan);
+                });
                 cardDinamica.appendChild(template);
             });
         }
 
-        // Función para cargar las bebidas desde el JSON
         async function loadBebidas() {
             const response = await fetch('arestaurantbebidas.json');
             const apiData = await response.json();
@@ -120,78 +182,171 @@
                 template.querySelector('.card-title').textContent = item.nombreb;
                 template.querySelector('.desc').textContent = item.descripcionb;
                 template.querySelector('.price').textContent = `$${item.preciob}`;
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item));
+                
+                let quantitySpan = template.querySelector('.quantity');
+                let quantity = 0;
+
+                template.querySelector('.plus').addEventListener('click', () => {
+                    quantity++;
+                    quantitySpan.textContent = quantity;
+                });
+
+                template.querySelector('.minus').addEventListener('click', () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        quantitySpan.textContent = quantity;
+                    }
+                    if (quantity === 0) {
+                        cancelCartItem(item);
+                    }
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => {
+                    addToCart(item, quantity, quantitySpan);
+                });
                 cardDinamicaDos.appendChild(template);
             });
         }
 
-        // Función para agregar platos al carrito
-        function addToCart(item) {
-            const cartItem = cart.find(cartItem => cartItem.nombre === item.nombre || cartItem.nombre === item.nombreb);
-            if (cartItem) {
-                cartItem.quantity += 1; // Aumenta la cantidad si ya existe en el carrito
-            } else {
-                cart.push({ ...item, quantity: 1 }); // Agrega el item con cantidad 1
-            }
-            updateTotal(); // Actualiza el total después de agregar el plato
-            renderCart(); // Renderiza el carrito después de agregar el plato
+        function addToCart(item, quantity, quantitySpan) {
+    if (quantity > 0) {
+        // Cambia esta línea para buscar el índice basado en la descripción
+        const cartItemIndex = cart.findIndex(cartItem => 
+            (cartItem.descripcion === item.descripcion || cartItem.descripcionb === item.descripcionb)
+        );
+
+        if (cartItemIndex > -1) {
+            // Si el elemento ya existe, actualiza la cantidad
+            cart[cartItemIndex].cantidad += quantity;
+        } else {
+            // Si no existe, agrégalo al carrito con la cantidad
+            cart.push({ ...item, cantidad: quantity });
         }
 
-        // Función para actualizar el total
-        function updateTotal() {
-            const total = cart.reduce((acc, item) => {
-                const price = parseFloat(item.preciob || item.precio); // Usa parseFloat para asegurar que sea un número
-                return acc + (price * item.quantity);
-            }, 0);
-            totalElement.textContent = total.toFixed(2); // Asegúrate de mostrar el total con dos decimales
+        // Actualiza el total
+        totalAmount += item.precio * quantity;
+        updateTotal();
+        renderCart();
+        quantitySpan.textContent = 0; // Reiniciar cantidad en la interfaz
+    } else {
+        alert('Selecciona una cantidad válida');
+    }
         }
 
-        // Función para renderizar el carrito
-        function renderCart() {
-            const cartContainer = document.getElementById('cart-container');
-            cartContainer.innerHTML = ''; // Limpiar el contenedor
+        function cancelCartItem(item) {
+    // Busca el índice del item en el carrito, considerando platos y bebidas
+    const cartItemIndex = cart.findIndex(cartItem => (cartItem.nombre === item.nombre || cartItem.nombreb === item.nombreb));
+    
+    if (cartItemIndex > -1) {
+        // Determina el precio correcto basado en si es un plato o bebida
+        const itemPrice = item.precio !== undefined ? item.precio : item.preciob;
 
-            cart.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.textContent = `${item.nombre || item.nombreb} - $${(item.preciob || item.precio).toFixed(2)} x ${item.quantity}`; // Cambiado para incluir nombre y precio de bebidas
-                cartContainer.appendChild(cartItem);
+        totalAmount -= itemPrice * cart[cartItemIndex].cantidad; // Restar el total del item
+        cart.splice(cartItemIndex, 1); // Elimina el item del carrito
+        updateTotal(); // Actualiza el total
+        renderCart(); // Renderiza el carrito
+    }
+}
+
+function updateTotal() {
+    const totalElement = document.getElementById('total');
+    // Verifica si totalAmount es un número
+    if (isNaN(totalAmount) || totalAmount === null) {
+        totalAmount = 0; // Establece un valor por defecto
+    }
+
+    totalElement.textContent = totalAmount.toFixed(2); // Formatea el total a 2 decimales
+}
+
+
+function renderCart() {
+    const cartContainer = document.getElementById('cart-container');
+    cartContainer.innerHTML = ''; // Limpia el contenedor del carrito
+
+    cart.forEach(item => {
+        const itemPrice = item.precio !== undefined ? item.precio : item.preciob; // Determina el precio
+        const cartItem = document.createElement('div');
+        cartItem.innerHTML = `
+            <p>${item.nombre || item.nombreb} - Cantidad: ${item.cantidad} - $${(itemPrice * item.cantidad).toFixed(2)}
+            <button class="btn btn-danger btn-sm remove" data-name="${item.nombre || item.nombreb}">Eliminar</button>
+        `;
+        cartContainer.appendChild(cartItem); // Agrega el item al contenedor
+
+        // Agrega un evento de click para eliminar el item
+        cartContainer.querySelectorAll('.remove').forEach(button => {
+            button.addEventListener('click', () => {
+                const itemName = button.getAttribute('data-name');
+                const item = cart.find(cartItem => (cartItem.nombre === itemName || cartItem.nombreb === itemName));
+                cancelCartItem(item);
             });
+        });
+    });
+}
+
+// Cargar platos y bebidas
+loadPlatos();
+loadBebidas();
+
+    });
+
+    function saveOrder() {
+        const horaReserva = document.getElementById('horaReserva').value;
+        const mesaSelect = document.getElementById('mesaSelect').value;
+
+        if (!horaReserva || !mesaSelect) {
+            alert('Por favor, selecciona una hora y una mesa.');
+            return;
         }
 
-        loadPlatos(); // Carga los platos al iniciar
-        loadBebidas(); // Carga las bebidas al iniciar
-    });
+        const orderData = {
+            user: {
+                nombre: '<?php echo $_SESSION['nombre']; ?>',
+                apellido: '<?php echo $_SESSION['apellido']; ?>',
+            },
+            hora: horaReserva,
+            mesa: mesaSelect,
+            items: cart,
+            total: totalAmount
+        };
+
+        fetch('save_order.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Pedido guardado con éxito.');
+                cart.length = 0;
+                totalAmount = 0; 
+                updateTotal();
+                renderCart();
+                document.getElementById('horaReserva').value = '';
+                document.getElementById('mesaSelect').value = '';
+            } else {
+                alert('Error al guardar el pedido.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al guardar el pedido.');
+        });
+    }
 </script>
 
-<form method="POST">
-    <label for="hora_inicio">Hora de inicio:</label>
-    <input type="time" name="hora_inicio" id="hora_inicio" required><br><br>
-    
-    <label for="mesa_id">Selecciona el número de sillas:</label>
-    <select name="mesa_id" id="mesa_id">
-        <option value="1">Mesa de 2 sillas</option>
-        <option value="2">Mesa de 4 sillas</option>
-        <option value="3">Mesa de 6 sillas</option>
-        <option value="4">Mesa de 8 sillas</option>
-    </select><br><br>
-</form>
-
 <div class="container">
-    <h3>Total: <span id="total">0.00</span></h3> <!-- Se establece un total inicial de 0.00 -->
-    <div id="cart-container"></div> <!-- Contenedor para el carrito -->
-    <button id="confirmar-pedido" class="btn btn-success">Confirmar Pedido</button>
+    <div id="cart-container"></div>
+    <div class="d-flex justify-content-between">
+        <h3>Total: $<span id="total">0.00</span></h3>
+        <button class="btn btn-success" onclick="saveOrder()">Guardar Pedido</button>
+    </div>
 </div>
-<br>
-<br>
-
-<footer class="footer-real">
-    Delizia &copy; 2024 - Todos los derechos reservados
-</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
-

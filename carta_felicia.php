@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heladeria Felicia</title>
+    <title>Comedor Bartolomé</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="carrito.css">
 </head>
@@ -88,14 +88,13 @@
 </div>  
 
 <script>
-    const cart = []; // Array para almacenar los platos elegidos
+    const cart = []; 
 
     document.addEventListener('DOMContentLoaded', () => {
         const cardDinamica = document.getElementById('card-dinamica');
         const cardDinamicaDos = document.getElementById('card-dinamica-dos');
         const totalElement = document.getElementById('total');
-
-        // Función para cargar los platos desde el JSON
+        
         async function loadPlatos() {
             const response = await fetch('aheladeria.json');
             const apiData = await response.json();
@@ -105,12 +104,20 @@
                 template.querySelector('.card-title').textContent = item.nombre;
                 template.querySelector('.desc').textContent = item.descripcion;
                 template.querySelector('.price').textContent = `$${item.precio}`;
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item));
+                
+                let quantitySpan = template.querySelector('.quantity');
+                let quantity = 0;
+                
+                template.querySelector('.plus').addEventListener('click', () => {
+                    quantity++;
+                    quantitySpan.textContent = quantity;
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item, quantity, quantitySpan));
                 cardDinamica.appendChild(template);
             });
         }
 
-        // Función para cargar las bebidas desde el JSON
         async function loadBebidas() {
             const response = await fetch('aheladeriabebidas.json');
             const apiData = await response.json();
@@ -120,49 +127,83 @@
                 template.querySelector('.card-title').textContent = item.nombreb;
                 template.querySelector('.desc').textContent = item.descripcionb;
                 template.querySelector('.price').textContent = `$${item.preciob}`;
-                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item));
+                
+                let quantitySpan = template.querySelector('.quantity');
+                let quantity = 0;
+
+                template.querySelector('.plus').addEventListener('click', () => {
+                    quantity++;
+                    quantitySpan.textContent = quantity;
+                });
+
+                template.querySelector('.add-to-cart').addEventListener('click', () => addToCart(item, quantity, quantitySpan));
                 cardDinamicaDos.appendChild(template);
             });
         }
 
-        // Función para agregar platos al carrito
-        function addToCart(item) {
-            const cartItem = cart.find(cartItem => cartItem.nombre === item.nombre || cartItem.nombre === item.nombreb);
-            if (cartItem) {
-                cartItem.quantity += 1; // Aumenta la cantidad si ya existe en el carrito
-            } else {
-                cart.push({ ...item, quantity: 1 }); // Agrega el item con cantidad 1
+        function addToCart(item, quantity, quantitySpan) {
+            if (quantity > 0) {
+                // Aquí siempre añadimos un nuevo objeto al carrito
+                const cartItem = { ...item, quantity: quantity }; // Crea un nuevo objeto para el carrito
+
+                // Agrega el nuevo artículo al carrito
+                cart.push(cartItem);
+
+                updateTotal();
+                renderCart();
+                
+                // Restablecer la cantidad a 0 después de añadir al carrito
+                quantitySpan.textContent = 0; 
             }
-            updateTotal(); // Actualiza el total después de agregar el plato
-            renderCart(); // Renderiza el carrito después de agregar el plato
         }
 
-        // Función para actualizar el total
         function updateTotal() {
             const total = cart.reduce((acc, item) => {
-                const price = parseFloat(item.preciob || item.precio); // Usa parseFloat para asegurar que sea un número
+                const price = parseFloat(item.preciob || item.precio);
                 return acc + (price * item.quantity);
             }, 0);
-            totalElement.textContent = total.toFixed(2); // Asegúrate de mostrar el total con dos decimales
+            totalElement.textContent = total.toFixed(2);
         }
 
-        // Función para renderizar el carrito
         function renderCart() {
             const cartContainer = document.getElementById('cart-container');
-            cartContainer.innerHTML = ''; // Limpiar el contenedor
+            cartContainer.innerHTML = '';
 
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 const cartItem = document.createElement('div');
-                cartItem.textContent = `${item.nombre || item.nombreb} - $${(item.preciob || item.precio).toFixed(2)} x ${item.quantity}`; // Cambiado para incluir nombre y precio de bebidas
+                cartItem.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2');
+                cartItem.innerHTML = `
+                    <span>${item.nombre || item.nombreb} - $${(item.preciob || item.precio)} x ${item.quantity}</span>
+                    <div>
+                        <button class="btn btn-secondary btn-sm mr-2" onclick="restar(${index})">Restar</button>
+                        <button class="btn btn-danger btn-sm" onclick="cancelar(${index})">Cancelar</button>
+                    </div>
+                `;
                 cartContainer.appendChild(cartItem);
             });
         }
 
-        loadPlatos(); // Carga los platos al iniciar
-        loadBebidas(); // Carga las bebidas al iniciar
+        window.restar = function(index) {
+            const cartItem = cart[index];
+            if (cartItem.quantity > 1) {
+                cartItem.quantity -= 1;
+                updateTotal();
+                renderCart();
+            } else {
+                cancelar(index);
+            }
+        }
+
+        window.cancelar = function(index) {
+            cart.splice(index, 1);
+            updateTotal();
+            renderCart();
+        }
+
+        loadPlatos();
+        loadBebidas();
     });
 </script>
-
 <form method="POST">
     <label for="hora_inicio">Hora de inicio:</label>
     <input type="time" name="hora_inicio" id="hora_inicio" required><br><br>
@@ -191,8 +232,5 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
-
-

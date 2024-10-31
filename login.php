@@ -1,21 +1,20 @@
 <?php
 session_start();
 require 'conexion.php';
-// Procesar el inicio de sesión
 if (isset($_POST['login'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $contrasena = $_POST['contrasena']; // Este es el nombre correcto
-
+    $contrasena = $_POST['contrasena']; 
     // Consulta para encontrar al usuario en la base de datos
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE nombre = :nombre AND apellido = :apellido");
     $stmt->execute([':nombre' => $nombre, ':apellido' => $apellido]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
     if ($usuario) {
         // Verificar la contraseña
         if (password_verify($contrasena, $usuario['contrasena'])) { 
             // Inicio de sesión exitoso
+            $_SESSION['nombre'] = $nombre; 
+            $_SESSION['apellido'] = $apellido;
             $_SESSION['user'] = $usuario; // Almacenar datos del usuario en la sesión
             header('Location:inicio.php');
             exit();
@@ -26,7 +25,6 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Usuario no encontrado.');</script>";
     }
 }
-
 // Procesar el registro
 if (isset($_POST['registrar'])) {
     $nombre = $_POST['nombre']; // Cambiar nombre_registro a nombre

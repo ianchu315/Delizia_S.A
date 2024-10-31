@@ -139,38 +139,12 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
 
 <header class="nav">
 
-        <a href="inicio.html" class="titulo">Delizia</a>
+        <a href="acafeteria.php" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
-            <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
+            <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
-
-        <div class="selecciones">
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="inicio.html">Inicio</a>
-            </button>
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="restaurantes.html">locales</a>
-
-            </button>
-            <button>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <a href="cafeteria.html">Cafeteria</a>
-            </button>
-        </div>
-
-    </header>
+</header>
 <center><h2>Cafeteria:Nautilus</h2></center>
     <h2>Menú Comida:</h2>
     <div class="text-center">

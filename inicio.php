@@ -1,6 +1,3 @@
-<?php
-session_start(); 
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,8 +41,21 @@ session_start();
                 <a href="cafeteria.html">Contactanos</a>
             </button>
         </div>
-
     </header>
+    <br>
+    <?php
+session_start(); 
+if (isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
+    $nombre = $_SESSION['nombre'];
+    $apellido = $_SESSION['apellido'];
+    echo "<center><h2>Bienvenido, " . $nombre . " " . $apellido . "!</h2></center>";
+
+} else {
+    echo "Por favor, inicie sesión.";
+    header("Location: login.php");
+    exit;
+}
+?>
     <br>
     <h2>Encuentra tu lugar favorito en un solo lugar</h2>
     <br>
