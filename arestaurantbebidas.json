@@ -2,11 +2,11 @@
     {
         "nombreb": "Agua saborizada",
         "descripcionb": "Manzana o Naranja",
-        "preciob": "1000"
+        "preciob": 1000
     },
     {
         "nombreb": "Coca Cola",
         "descripcionb": "Gaseosa",
-        "preciob": "1400"
+        "preciob": 1400
     }
 ]

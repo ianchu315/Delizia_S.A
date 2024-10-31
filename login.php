@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'conexion.php';
 // Procesar el inicio de sesión
 if (isset($_POST['login'])) {
@@ -16,7 +17,7 @@ if (isset($_POST['login'])) {
         if (password_verify($contrasena, $usuario['contrasena'])) { 
             // Inicio de sesión exitoso
             $_SESSION['user'] = $usuario; // Almacenar datos del usuario en la sesión
-            header('Location:inicio.html');
+            header('Location:inicio.php');
             exit();
         } else {
             echo "<script>alert('Contraseña incorrecta');</script>";
@@ -97,6 +98,7 @@ if (isset($_POST['registrar'])) {
                 <div class="sesion">
                     <button type="submit" name="login">Iniciar Sesión</button>
                 </div>
+                <br>
                 <div class="sesion">
                     <button type="submit" name="registrar">Registrar</button>
                 </div>

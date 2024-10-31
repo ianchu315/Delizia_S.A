@@ -1,4 +1,4 @@
-<h2?php
+<?php
 $contraseña = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $local = $_POST['local'];

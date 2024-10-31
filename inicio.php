@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +14,7 @@ session_start();
 
     <header class="nav">
 
-        <a href="inicio.html" class="titulo">Delizia</a>
+        <a href="inicio.php" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
             <a class="a" href="cerrar.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
@@ -26,7 +26,7 @@ session_start();
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="./inicio.html">inicio</a>
+                <a href="./inicio.php">inicio</a>
             </button>
             <button>
                 <span></span>
@@ -46,11 +46,8 @@ session_start();
         </div>
 
     </header>
-
     <br>
-
     <h2>Encuentra tu lugar favorito en un solo lugar</h2>
-
     <br>
     
     <!-- Carrusel -->

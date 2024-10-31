@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['precio'])) {
         $nombre = htmlspecialchars(trim($_POST['nombre']));
         $descripcion = htmlspecialchars(trim($_POST['descripcion']));
-        $precio = htmlspecialchars(trim($_POST['precio']));
+        $precio = floatval(trim($_POST['precio']));
 
         $archivoAgregar = [
             'nombre' => $nombre,
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['preciob'])) {
         $nombreb = htmlspecialchars(trim($_POST['nombreb']));
         $descripcionb = htmlspecialchars(trim($_POST['descripcionb']));
-        $preciob = htmlspecialchars(trim($_POST['preciob']));
+        $preciob = floatval(trim($_POST['preciob']));
 
         $archivoAgregarBebida = [
             'nombreb' => $nombreb,

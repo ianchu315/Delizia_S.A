@@ -2,36 +2,36 @@
     {
         "nombre": "Cintas Verdes",
         "descripcion": "Delicadas cintas de pasta fresca, elaboradas con espinaca, que aportan un vibrante color verde y un suave sabor vegetal. Perfectas para acompa\u00f1ar salsas ligeras o como base de un exquisito pesto.",
-        "precio": "8000"
+        "precio": 8000
     },
     {
         "nombre": "Tallarines",
         "descripcion": "Tradicional pasta italiana, con una textura suave y un grosor ideal que absorbe perfectamente las salsas. Ideales para disfrutar con una salsa bolo\u00f1esa rica y sabrosa o simplemente salteados con aceite de oliva y ajo.",
-        "precio": "8000"
+        "precio": 8000
     },
     {
         "nombre": "Mac And Cheese",
-        "descripcion": "Un cl\u00e1sico reconfortante que combina macarrones al dente con una cremosa salsa de queso cheddar. Este plato, gratinado al horno, es perfecto para los amantes del queso y un favorito en cualquier mesa.",
-        "precio": "8000"
+        "descripcion": "Un clasico reconfortante que combina macarrones al dente con una cremosa salsa de queso cheddar. Este plato, gratinado al horno, es perfecto para los amantes del queso y un favorito en cualquier mesa.",
+        "precio": 8000
     },
     {
-        "nombre": "\u00d1oquis de Papa",
-        "descripcion": "Suaves y esponjosos, estos \u00f1oquis est\u00e1n hechos a base de pur\u00e9 de papa, que se derriten en la boca. Se pueden servir con una salsa de tomate fresca o simplemente con mantequilla y salvia.",
-        "precio": "8500"
+        "nombre": "noquis de Papa",
+        "descripcion": "Suaves y esponjosos, estos noquis estan hechos a base de pure de papa, que se derriten en la boca. Se pueden servir con una salsa de tomate fresca o simplemente con mantequilla y salvia.",
+        "precio": 8500
     },
     {
         "nombre": "Sorrentinos de Calabaza",
-        "descripcion": "Pasta rellena con un delicioso pur\u00e9 de calabaza, especias y un toque de queso. Cada bocado ofrece una combinaci\u00f3n perfecta de dulzura y cremosidad, ideal para acompa\u00f1ar con salsa de nuez o una ligera salsa de mantequilla.",
-        "precio": "9800"
+        "descripcion": "Pasta rellena con un delicioso pure de calabaza, especias y un toque de queso. Cada bocado ofrece una combinacion perfecta de dulzura y cremosidad, ideal para acompanar con salsa de nuez o una ligera salsa de mantequilla.",
+        "precio": 9800
     },
     {
-        "nombre": "Sorrentinos Jam\u00f3n y Queso",
-        "descripcion": "Deliciosos sorrentinos rellenos con una mezcla cl\u00e1sica de jam\u00f3n cocido y queso. Este plato combina la suavidad de la pasta con el sabor salado del jam\u00f3n, perfecto para cualquier ocasi\u00f3n.",
-        "precio": "10000"
+        "nombre": "Sorrentinos Jamon y Queso",
+        "descripcion": "Deliciosos sorrentinos rellenos con una mezcla clasica de jamon cocido y queso. Este plato combina la suavidad de la pasta con el sabor salado del jamon, perfecto para cualquier ocasion.",
+        "precio": 10000
     },
     {
         "nombre": "Malfatti de Espinaca y Ricotta",
-        "descripcion": "Peque\u00f1os y tiernos dumplings hechos a base de espinaca fresca y ricotta, sazonados con hierbas. Su textura suave y su sabor delicado los hacen ideales para acompa\u00f1ar con una salsa de mantequilla y queso parmesano.",
-        "precio": "10000"
+        "descripcion": "Pequenos y tiernos dumplings hechos a base de espinaca fresca y ricotta, sazonados con hierbas. Su textura suave y su sabor delicado los hacen ideales para acompaniar con una salsa de mantequilla y queso parmesano.",
+        "precio": 10000
     }
 ]
