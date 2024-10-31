@@ -1,0 +1,199 @@
+body{
+    margin: 0;
+    padding: 0;
+  }
+
+  #carouselExampleControls{
+    width: 60%;
+    margin-left: 20%;
+  }
+  
+  /* nav */
+  
+  .nav{
+    background-image: url(./img/background.jpg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+    background-color: rgb(166, 49, 212); 
+  }
+
+  .titulo{
+    display: flex;
+    font-size: 400%;
+    /* margin-left: 46%; */
+    align-items: center;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: 'Aussten';
+    user-select: none;
+
+  }
+  
+  .titulo:hover{
+    color: aliceblue;
+    text-decoration: none;
+  }
+
+  .cerrar_se .a{
+    color: aliceblue;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .cerrar_se a{
+    font-size: 100%
+  }
+
+  .cerrar_se img{
+    width: 4%;
+    margin-right: 6.5%;
+  }
+
+  .cerrar_se:hover{
+    text-decoration: underline aliceblue;
+  }
+  
+  .selecciones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .selecciones button{
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1%;
+    overflow: hidden;
+  }
+
+  .selecciones button a{
+    color: aliceblue;
+    text-decoration: none;
+  }
+
+  .selecciones span:nth-child(1){
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: -100%;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(2){
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: 3px;
+    top: 0;
+    right: -100%;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(3){
+    position: absolute;
+    background: white;
+    width: 3px;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones span:nth-child(4){
+    position: absolute;
+    background: white;
+    width: 3px;
+    height: 100%;
+    bottom: -100%;
+    right: 0;
+    transition: .5s ease-in-out;
+  }
+
+  .selecciones button:hover span:nth-child(1){
+    left: 0;
+  }
+  
+  .selecciones button:hover span:nth-child(2){
+    right: 0;
+  }
+
+  .selecciones button:hover span:nth-child(3){
+    top: 0;
+  }
+
+  .selecciones button:hover span:nth-child(4){
+    bottom: 0;
+  }
+
+  /* rgb(166, 49, 212); */
+
+  /* #A631D4 */
+  
+  /* texto */
+  
+  h1 {
+    display: inline-block;
+    padding: .5%;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 300%;
+  }
+  
+  h2{
+    display: flex;
+    font-size: 250%;
+    font-weight: 180;
+    justify-content: center;
+  }
+
+  .aa{
+    color: rgb(166, 49, 212);
+  }
+
+  .aa:hover{
+    color: rgb(166, 49, 212);
+    text-decoration: none;
+  } 
+
+  .titulo-login{
+    display: flex;
+    font-size: 600%;
+    align-items: center;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: 'Aussten';
+    user-select: none;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  @font-face {
+    font-family: 'Aussten';
+    src: url('fuente/Austten.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  footer{
+    display: flex;
+    justify-content: center;
+    font-size: 110%;
+    font-weight: 300;
+    position: fixed;
+    width: 100%;
+    top: 90;
+    bottom: 0;
+    padding: .5% 0;
+    background-color: #333;
+    color: aliceblue;
+  }
