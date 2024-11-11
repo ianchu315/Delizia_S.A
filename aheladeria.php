@@ -129,22 +129,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="cartas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Heladeria:Felizia</title>
+    <title>Heladeria | Felizia</title>
 </head>
 <body>
 
-<header class="nav">
+    <header class="nav">
 
-        <a href="" class="titulo">Delizia</a>
-        <a href="llegaheladeria.php" class="titulo">Comanda</a>
+        <a style="margin-left: 2%;" href="llegaheladeria.php" class="titulo">Comanda</a>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
         
     </header>
-    <center><h2>Heladeria:Felizia</h2></center>
+
+    <br>
+
+    <center><h2 style="text-decoration: underline var(--violeta); font-size: 300%; font-family: 'Austten';">Felicia</h2></center>
+
+    <br>
+
     <h2>Menú Comida:</h2>
+
     <div class="text-center">
         <form action="" method="post">
             <label for="nombre">Nombre:</label>
@@ -159,6 +166,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="btn btn-secondary" type="submit">Agregar</button>
         </form>
     </div>
+
+    <br>
+    <br>
 
     <h2>Menú Bebidas:</h2>
 
@@ -176,6 +186,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="btn btn-secondary" type="submit">Agregar</button>
         </form>
     </div>
+
+    <br>
 
     <!-- Mensaje de respuesta -->
     <?php if (!empty($message)): ?>

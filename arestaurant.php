@@ -127,20 +127,25 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="cartas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Restaurant:Bartolome</title>
+    <title>Restaurant | Bartolome</title>
 </head>
 <body>
 
-<header class="nav">
-
-        <a href="arestaurant.php" class="titulo">Delizia</a>
-        <a href="llegarestaurant.php" class="titulo">Comanda</a>
+    <header class="nav">
+        <a style="margin-left: 2%;" href="llegarestaurant.php" class="titulo">Comanda</a>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
     </header>
-<center><h2>Restaurant:Bartolome</h2></center>
+
+    <br>
+
+    <center><h2 style="text-decoration: underline var(--violeta); font-size: 300%; font-family: 'Austten';">Bartolome</h2></center>
+
+    <br>
+
     <h2>Menú Comida:</h2>
     <div class="text-center">
         <form action="" method="post">
@@ -157,6 +162,9 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
         </form>
     </div>
 
+    <br>
+    <br>
+
     <h2>Menú Bebidas:</h2>
     <div class="text-center">
         <form action="" method="post">
@@ -172,6 +180,8 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
             <button class="btn btn-secondary" type="submit">Agregar</button>
         </form>
     </div>
+
+    <br>
 
     <!-- Mensaje de respuesta -->
     <?php if (!empty($message)): ?>

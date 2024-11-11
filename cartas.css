@@ -1,0 +1,54 @@
+/* colores */
+
+:root{
+    --violeta: #A631D4;
+}
+
+.g-pedido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.g-pedido .contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 75%;
+    border: solid 1px  var(--violeta) ;
+    border-radius: 10px 0px;
+    padding: 2% 0;
+}
+
+.g-pedido button{
+    color: var(--violeta);
+    background-color: transparent;
+    border: solid 1px  var(--violeta) ;
+}
+
+.g-pedido button:hover{
+    color: white;
+    background-color: var(--violeta);
+    border: transparent;
+}
+
+.borde-v{
+    padding:.5%;
+    color: var(--violeta);
+    background-color: transparent;
+    border: solid 1px var(--violeta);
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.borde-v:hover{
+    transition: .3s;
+    padding: .8%;
+    color: aliceblue;
+    background-color: var(--violeta);
+}
+
+.subrrallado{
+    text-decoration: underline var(--violeta);
+}

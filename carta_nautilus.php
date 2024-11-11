@@ -6,18 +6,19 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ess">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria Nutilus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="cartas.css">
 </head>
 <body>
 
 <header class="nav">
-    <a href="inicio.php" class="titulo">Delizia</a>
+    <a href="inicio.php" class="titulo">Nautilus</a>
     <div class="cerrar_se">
         <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
     </div>
@@ -27,7 +28,7 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
             <span></span>
             <span></span>
             <span></span>
-            <a href="inicio.html">Inicio</a>
+            <a href="inicio.php">Inicio</a>
         </button>
         <button>
             <span></span>
@@ -78,15 +79,17 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
 </div>
 </center>
 
-<div class="row justify-content-center">
+<div class="justificado">
     <h2>Comidas</h2>
-    <div class="container my-5">
+    <br>
+    <br>
+    <div style="margin-left: 3%" class="conteiner">
         <div class="row" id="card-dinamica"></div>
-        <template id="template-card">
+        <template class="template-card" id="template-card">
             <article class="col-md-6 col-lg-3 mb-3">
                 <div class="card text-center shadow">
                     <div class="card-body">
-                        <h5 class="card-title text-primary lead"></h5>
+                        <h5 style="color: var(--violeta)" class="card-title text-primary lead"></h5>
                         <p class="desc"></p>
                         <p class="lead price text-secondary"></p>
                         <div class="d-flex justify-content-center">
@@ -102,11 +105,13 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
     </div>
 </div>
 
-<div class="row justify-content-center">
+<div class="justificado">
     <h2>Bebidas</h2>
-    <div class="container my-5">
+    <br>
+    <br>
+    <div style="margin-left: 3%" class="conteiner">
         <div class="row" id="card-dinamica-dos"></div>
-        <template id="template-card-dos">
+        <template class="template-card" id="template-card-dos">
             <article class="col-md-6 col-lg-3 mb-3">
                 <div class="card text-center shadow">
                     <div class="card-body">
@@ -124,7 +129,8 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
             </article>
         </template>
     </div>
-</div>  
+</div>
+
 <script>
     const cart = []; 
     let totalAmount = 0;
@@ -344,13 +350,19 @@ loadBebidas();
     }
 </script>
 
-<div class="container">
+<br>
+<br>
+
+<div class="g-pedido">
     <div id="cart-container"></div>
-    <div class="d-flex justify-content-between">
+    <div class="contenido">
         <h3>Total: $<span id="total">0.00</span></h3>
-        <button class="btn btn-success" onclick="saveOrder()">Guardar Pedido</button>
+        <button class="boton-v" onclick="saveOrder()">Guardar Pedido</button>
     </div>
 </div>
+
+<br>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

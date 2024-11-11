@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Restaurant Bartolome</title>
 </head>
 <body>
 
 <header class="nav">
-    <a href="" class="titulo">Delizia</a>
     <center><a href="arestaurant.php" class="titulo">Menu</a></center>
     <div class="cerrar_se">
         <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
     </div>
 </header>
 
-<center><h2>Cafetería: Nautilus</h2></center>
+<center><h2>Bartolome</h2></center>
 
 <?php
 $archivoJson = "cartabartolome.json";

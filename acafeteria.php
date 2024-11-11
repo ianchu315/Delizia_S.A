@@ -133,51 +133,60 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="cartas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Cafeteria:Nautilus</title>
+    <title>Cafeteria | Nautilus</title>
 </head>
 <body>
 
-<header class="nav">
-
-        <a href="acafeteria.php" class="titulo">Delizia</a>
-        <center><a href="llegacafe.php" class="titulo">Comanda</a></center>
+    <header class="nav">
+        <a style="margin-left: 2%;" href="llegacafe.php" class="titulo">Comanda</a>
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
-</header>
-<center><h2>Cafeteria:Nautilus</h2></center>
-    <h2>Menú Comida:</h2>
-    <div class="text-center">
-        <form action="" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
-            <br>
-            <label for="descripcion">Descripción:</label>
-            <input type="text" name="descripcion" id="descripcion" value="<?php echo htmlspecialchars($descripcion); ?>" required>
-            <br>
-            <label for="precio">Precio:</label>
-            <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
-            <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
-        </form>
-    </div>
+    </header>
 
-    <h2>Menú Bebidas:</h2>
-    <div class="text-center">
-        <form action="" method="post">
-            <label for="nombreb">Nombre:</label>
-            <input type="text" name="nombreb" id="nombreb" value="<?php echo htmlspecialchars($nombreb); ?>" required>
-            <br>
-            <label for="descripcionb">Descripción:</label>
-            <input type="text" name="descripcionb" id="descripcionb" value="<?php echo htmlspecialchars($descripcionb); ?>" required>
-            <br>
-            <label for="preciob">Precio:</label>
-            <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
-            <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
-        </form>
-    </div>
+    <br>
+
+    <center><h2 style="text-decoration: underline var(--violeta); font-size: 300%; font-family: 'Austten';">Nautilus</h2></center>
+
+    <br>
+
+        <h2>Menú Comida:</h2>
+        <div class="text-center">
+            <form action="" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
+                <br>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" name="descripcion" id="descripcion" value="<?php echo htmlspecialchars($descripcion); ?>" required>
+                <br>
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
+                <br>
+                <button class="borde-v" type="submit">Agregar</button>
+            </form>
+        </div>
+
+        <br>
+        <br>
+
+        <h2>Menú Bebidas:</h2>
+        <div class="text-center">
+            <form action="" method="post">
+                <label for="nombreb">Nombre:</label>
+                <input type="text" name="nombreb" id="nombreb" value="<?php echo htmlspecialchars($nombreb); ?>" required>
+                <br>
+                <label for="descripcionb">Descripción:</label>
+                <input type="text" name="descripcionb" id="descripcionb" value="<?php echo htmlspecialchars($descripcionb); ?>" required>
+                <br>
+                <label for="preciob">Precio:</label>
+                <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
+                <br>
+                <button class="borde-v" type="submit">Agregar</button>
+            </form>
+        </div>
+    <br>
 
     <!-- Mensaje de respuesta -->
     <?php if (!empty($message)): ?>
@@ -187,9 +196,10 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
     <?php endif; ?>
 
     <!-- Mostrar Menú de Comidas con opción de eliminar -->
+     
     <h2>Listado de Comidas</h2>
 
-    <div class="text-center">
+    <div class="justificado">
     <?php
     $archivo = "acafeteria.json";
     if (file_exists($archivo)) {
@@ -203,17 +213,21 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
                 echo "Precio: " . htmlspecialchars($pedido['precio']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombre" value="' . htmlspecialchars($pedido['nombre']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
+                        <button class="borde-v" type="submit">Eliminar</button>
                       </form><br>';
             }
         }
     }
     ?>
+
     </div>
+
+    <br>
+    <br>
 
     <!-- Mostrar Menú de Bebidas con opción de eliminar -->
     <h2>Listado de Bebidas</h2>
-    <div class="text-center">
+    <div class="justificado">
     <?php
     $archivob = "acafeteriabebidas.json";
     if (file_exists($archivob)) {
@@ -227,12 +241,13 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
                 echo "Precio: " . htmlspecialchars($pedidob['preciob']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombreb" value="' . htmlspecialchars($pedidob['nombreb']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
+                        <button class="borde-v" type="submit">Eliminar</button>
                       </form><br>';
             }
         }
     }
     ?>
+
     </div>
 </body>
 </html>

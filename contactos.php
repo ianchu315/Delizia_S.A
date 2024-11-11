@@ -7,52 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .tarjeta {
-            width: 320px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            background-color: #f8f9fa;
-        }
-        .nombre {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-        }
-        .cargo {
-            font-size: 18px;
-            color: #777;
-            margin-top: 5px;
-        }
-        .descripcion {
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
-        }
-        .contacto {
-            margin-top: 15px;
-        }
-        .contacto a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 14px;
-            display: block;
-            margin-top: 5px;
-        }
-        .contacto a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 20px;
-        }
+        
     </style>
 </head>
 <body>
@@ -66,10 +21,12 @@
 
         <div class="selecciones">
             <button><a href="./inicio.php">Inicio</a></button>
-            <button><a href="#locales">Locales</a></button>
             <button><a href="contactos.php">Contactanos</a></button>
         </div>
     </header>
+
+    <br>
+    <br>
 
     <?php
     session_start(); 
@@ -85,7 +42,7 @@
 
     <div class="tarjeta">
         <div class="nombre">Carlos López</div>
-        <div class="cargo">Propietario de Delizia</div>
+        <div class="cargo"><b>Propietario de Delizia</b></div>
         <div class="descripcion">
             Bienvenido a Delizia, donde la pasión por la comida se encuentra con el mejor servicio. Disfruta de nuestros platos artesanales en un ambiente acogedor.
         </div>

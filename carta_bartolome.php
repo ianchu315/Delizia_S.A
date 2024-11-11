@@ -13,11 +13,12 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
     <title>Comedor Bartolomé</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="cartas.css">
 </head>
 <body>
 
 <header class="nav">
-    <a href="inicio.php" class="titulo">Delizia</a>
+    <a href="inicio.php" class="titulo">Bartolomé</a>
     <div class="cerrar_se">
         <a class="a" href="login.html"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
     </div>
@@ -82,9 +83,9 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
 </div>
 </center>
 
-<div class="row justify-content-center">
+<div class="justificado">
     <h2>Comidas</h2>
-    <div class="container my-5">
+    <div style="margin-left: 3%" class="conteiner">
         <div class="row" id="card-dinamica"></div>
         <template id="template-card">
             <article class="col-md-6 col-lg-3 mb-3">
@@ -106,9 +107,9 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
     </div>
 </div>
 
-<div class="row justify-content-center">
+<div style="margin-left: 3%" class="justificado">
     <h2>Bebidas</h2>
-    <div class="container my-5">
+    <div class="conteiner">
         <div class="row" id="card-dinamica-dos"></div>
         <template id="template-card-dos">
             <article class="col-md-6 col-lg-3 mb-3">
@@ -349,13 +350,19 @@ loadBebidas();
     }
 </script>
 
+<br>
+<br>
+
 <div class="container">
     <div id="cart-container"></div>
     <div class="d-flex justify-content-between">
         <h3>Total: $<span id="total">0.00</span></h3>
-        <button class="btn btn-success" onclick="saveOrder()">Guardar Pedido</button>
+        <button class="boton-v" onclick="saveOrder()">Guardar Pedido</button>
     </div>
 </div>
+
+<br>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

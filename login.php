@@ -78,7 +78,7 @@ if (isset($_POST['registrar'])) {
     <div class="justificado">
         <form id="myForm" action="login.php" method="post">
             <div class="container">
-                <h2 style="color: white;">Inicio de Sesión</h2>
+                <h2 style="color: white; text-decoration: underline rgb(166, 42, 212);">Inicio de Sesión</h2>
                 <div class="input-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" required>
@@ -87,19 +87,23 @@ if (isset($_POST['registrar'])) {
                     <label for="contrasena">Contraseña</label>
                     <div style="position: relative;">
                         <input type="password" name="contrasena" id="contrasena" required>
-                        <i class="ri-eye-off-line login__eye" id="inputIcon"></i>   
                     </div> 
                 </div>
 
                 <br>
-
-                <div class="sesion">
-                    <button type="submit" name="login">Iniciar Sesión</button>
-                </div>
                 <br>
-                <div class="sesion">
-                    <button type="submit" name="registrar">Registrar</button>
+
+                <div class="botones">
+                    <div class="sesion">
+                        <button type="submit" name="login">Iniciar Sesión</button>
+                    </div>
+                    <br>
+                    <div class="sesion">
+                        <button type="submit" name="registrar">Registrarse</button>
+                    </div>
                 </div>
+
+                
             </div>
         </form>
     </div>

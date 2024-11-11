@@ -4,5 +4,11 @@
         "nombreb": "Sprite",
         "descripcionb": "sprite de vidrio de 2 litros",
         "preciob": 5
+    },
+    {
+        "id": "672d8cb1bb44a",
+        "nombreb": "Cerveza (Botella 1Lt)",
+        "descripcionb": "Andes - Quilmes - Stella",
+        "preciob": 3000
     }
 ]

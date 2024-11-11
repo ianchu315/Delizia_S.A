@@ -1,3 +1,9 @@
+:root{
+  --negro: #000;
+  --violeta: #A631D4;
+
+}
+
 /* body */
 
 body{
@@ -19,7 +25,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 3%;
-    background-color: rgb(166, 49, 212); 
+    background-color: var(--violeta); 
   }
 
   .titulo{
@@ -140,6 +146,16 @@ body{
   /* rgb(166, 49, 212); */
 
   /* #A631D4 */
+
+  /* otros */
+
+  .justificado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
   
   /* texto */
   
@@ -159,11 +175,11 @@ body{
   }
 
   .aa{
-    color: rgb(166, 49, 212);
+    color: var(--violeta);
   }
 
   .aa:hover{
-    color: rgb(166, 49, 212);
+    color: var(--violeta);
     text-decoration: none;
   } 
 
@@ -178,15 +194,8 @@ body{
     text-align: center;
     justify-content: center;
   }
-  
-  @font-face {
-    font-family: 'Aussten';
-    src: url('fuente/Austten.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-  }
 
-  
+  /* footer */
   
   footer{
     display: flex;
@@ -201,3 +210,11 @@ body{
     background-color: #333;
     color: aliceblue;
   }
+
+  @font-face {
+    font-family: 'Aussten';
+    src: url('fuente/Austten.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+  

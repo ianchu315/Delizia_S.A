@@ -1,8 +1,14 @@
 [
     {
-        "id": "6723cfce0674b",
-        "nombre": "ravioles",
-        "descripcion": "ravioles de carne y riccota con salsa blanca",
-        "precio": 5
+        "id": "672d5342a47ea",
+        "nombre": "Pasta con salsa",
+        "descripcion": "Tallarines - Ravioles - \u00d1oquis",
+        "precio": 9500
+    },
+    {
+        "id": "672d53847bddb",
+        "nombre": "Pizza",
+        "descripcion": "Com\u00fan - Especial - Fugazzeta",
+        "precio": 7000
     }
 ]

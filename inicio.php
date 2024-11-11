@@ -23,7 +23,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                <a href="./inicio.php">inicio</a>
+                <a href="./inicio.php">Inicio</a>
             </button>
             <button>
                 <span></span>
@@ -48,7 +48,7 @@ session_start();
 if (isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
     $nombre = $_SESSION['nombre'];
     $apellido = $_SESSION['apellido'];
-    echo "<center><h2>Bienvenido, " . $nombre . " " . $apellido . "!</h2></center>";
+    echo "<center><h2>Bienvenid@, " . $nombre . " " . $apellido . "!</h2></center>";
 
 } else {
     echo "Por favor, inicie sesión.";
@@ -90,10 +90,11 @@ if (isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
     <!-- Sección de Locales -->
     <section id="locales" class="conteeiner">
         <h2 class="Locales">Locales</h2>
+        <br>
         <div class="roww">
             <!-- Locales cards -->
                     <div class="carta">
-                            <img src="img/hamburgueseria.jpg" class="card-img-top" alt="Restaurante 1">
+                            <img src="img/nautilius.jpg" class="card-img-top" alt="Restaurante 1">
                             <div class="cpadding">
                                 <h5 class="card-title">Nautilus</h5>
                                 <p class="card-text">Disfruta de una experiencia gastronómica única en un ambiente acogedor y moderno</p>

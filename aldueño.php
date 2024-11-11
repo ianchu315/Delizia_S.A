@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
         }
         exit();
+        
     } else {
         echo "<script>alert('Contraseña incorrecta o selección de local inválida.');</script>";
     }
@@ -34,42 +35,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="cartas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Heladeria:Felizia</title>
+    <title>Comanda General</title>
 </head>
 <body>
 
 <header class="nav">
 
-        <a href="aldueño.php" class="titulo">Delizia</a>
+        <a style="margin-left: 46%" href="aldueño.php" class="titulo">Delizia</a>
 
         <div class="cerrar_se">
             <a class="a" href="aldueño.php"><img src="img/boton.png" alt="boton">Cerrar sesión</a>
         </div>
 
     </header>
+
+    <br>
     <h2>Selecciona un Local</h2>
+    <br>
+
     <div class="text-center">
         <form action="aldueño.php" method="POST">
             <label for="local">Que establecimiento deseas ver:</label>
             <select name="local" id="local" required>
                 <option value="local1">Cafetería</option>
+                <br>
                 <option value="local2">Heladería</option>
+                <br>
                 <option value="local3">Restaurante</option>
             </select>
+
+            <br>
             
-            <div class="form-group">
+            <div class="justificado">
                     <label for="contrasena"><h2>Introduzca la contraseña del local:</h2></label>
-                    <input type="password" class="form-control m-5" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+                    <input style="max-width: 20%;" type="password" class="form-control m-5" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
             </div>
-            <br><br>
-            <button class=" btn btn-secondary" type="submit">Abrir Local</button>
+                <button class="borde-v" class="btn btn-secondary" type="submit">Abrir Local</button>
         </form>
     </div>
+    <br>
+    <br>
     <center>
            <h2>Cafeteria:Nautilus_2023</h2>
+           <br>
            <h2>Heladeria:Felicia_2024</h2>
-           <h2>Restaurante:Bartolome_2025</h2> 
+           <br>
+           <h2>RestaurantBartolome_2025</h2>
+           <br>
     </center>
 </body>
 </html>

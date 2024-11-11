@@ -1,8 +1,12 @@
 [
     {
-        "id": "6723cf0d1b51a",
-        "nombre": "Chocotorta",
-        "descripcion": "Chocolina con dulce de leche",
-        "precio": 1
+        "nombre": "Lemon Pie",
+        "descripcion": "Porcion mediana",
+        "precio": 400
+    },
+    {
+        "nombre": "Caf\u00e9 con medialunas",
+        "descripcion": "cortado",
+        "precio": 2500
     }
 ]

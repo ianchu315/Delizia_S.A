@@ -183,6 +183,8 @@ body{
     font-style: normal;
     font-weight: normal;
   }
+  
+  /* footer */
 
   footer{
     display: flex;

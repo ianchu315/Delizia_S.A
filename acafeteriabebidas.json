@@ -1,8 +1,14 @@
 [
     {
-        "id": "6723cf154b484",
-        "nombreb": "Batido de banana",
-        "descripcionb": "batido de banana con leche de soya y chocolate",
-        "preciob": 6
+        "id": "672d43c190e70",
+        "nombreb": "Exprimido de naraja",
+        "descripcionb": "400 ml",
+        "preciob": 1000
+    },
+    {
+        "id": "672d5184a91d7",
+        "nombreb": "Licuado de Banana",
+        "descripcionb": "400 ml",
+        "preciob": 2000
     }
 ]
