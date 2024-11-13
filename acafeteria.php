@@ -152,103 +152,113 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
 
     <br>
 
-        <h2>Menú Comida:</h2>
-        <div class="text-center">
-            <form action="" method="post">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
-                <br>
-                <label for="descripcion">Descripción:</label>
-                <input type="text" name="descripcion" id="descripcion" value="<?php echo htmlspecialchars($descripcion); ?>" required>
-                <br>
-                <label for="precio">Precio:</label>
-                <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
-                <br>
-                <button class="borde-v" type="submit">Agregar</button>
-            </form>
-        </div>
-
-        <br>
-        <br>
-
-        <h2>Menú Bebidas:</h2>
-        <div class="text-center">
-            <form action="" method="post">
-                <label for="nombreb">Nombre:</label>
-                <input type="text" name="nombreb" id="nombreb" value="<?php echo htmlspecialchars($nombreb); ?>" required>
-                <br>
-                <label for="descripcionb">Descripción:</label>
-                <input type="text" name="descripcionb" id="descripcionb" value="<?php echo htmlspecialchars($descripcionb); ?>" required>
-                <br>
-                <label for="preciob">Precio:</label>
-                <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
-                <br>
-                <button class="borde-v" type="submit">Agregar</button>
-            </form>
-        </div>
-    <br>
-
-    <!-- Mensaje de respuesta -->
-    <?php if (!empty($message)): ?>
-        <div class="alert alert-info text-center m-3" role="alert">
-            <?php echo $message; ?>
-        </div>
-    <?php endif; ?>
-
-    <!-- Mostrar Menú de Comidas con opción de eliminar -->
-     
-    <h2>Listado de Comidas</h2>
-
-    <div class="justificado">
-    <?php
-    $archivo = "acafeteria.json";
-    if (file_exists($archivo)) {
-        $contenido = file_get_contents($archivo);
-        $resultado = json_decode($contenido, true); 
-
-        if ($resultado !== null) {
-            foreach ($resultado as $pedido) {
-                echo "Nombre: " . htmlspecialchars($pedido['nombre']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedido['descripcion']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedido['precio']) . "<br>";
-                echo '<form method="post">
-                        <input type="hidden" name="eliminar_nombre" value="' . htmlspecialchars($pedido['nombre']) . '">
-                        <button class="borde-v" type="submit">Eliminar</button>
-                      </form><br>';
-            }
-        }
-    }
-    ?>
-
+    <h2>Menú Comida:</h2>
+    
+    <div class="text-center">
+        <form action="" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
+            <br>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" name="descripcion" id="descripcion" value="<?php echo htmlspecialchars($descripcion); ?>" required>
+            <br>
+            <label for="precio">Precio:</label>
+            <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
+            <br>
+            <button class="borde-v" type="submit">Agregar</button>
+        </form>
     </div>
 
     <br>
     <br>
 
-    <!-- Mostrar Menú de Bebidas con opción de eliminar -->
-    <h2>Listado de Bebidas</h2>
-    <div class="justificado">
-    <?php
-    $archivob = "acafeteriabebidas.json";
-    if (file_exists($archivob)) {
-        $contenidob = file_get_contents($archivob);
-        $resultadob = json_decode($contenidob, true); 
+    <h2>Menú Bebidas:</h2>
+    
+    <div class="text-center">
+        <form action="" method="post">
+            <label for="nombreb">Nombre:</label>
+            <input type="text" name="nombreb" id="nombreb" value="<?php echo htmlspecialchars($nombreb); ?>" required>
+            <br>
+            <label for="descripcionb">Descripción:</label>
+            <input type="text" name="descripcionb" id="descripcionb" value="<?php echo htmlspecialchars($descripcionb); ?>" required>
+            <br>
+            <label for="preciob">Precio:</label>
+            <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
+            <br>
+            <button class="borde-v" type="submit">Agregar</button>
+        </form>
+    </div>
 
-        if ($resultadob !== null) {
-            foreach ($resultadob as $pedidob) {
-                echo "Nombre: " . htmlspecialchars($pedidob['nombreb']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedidob['preciob']) . "<br>";
-                echo '<form method="post">
-                        <input type="hidden" name="eliminar_nombreb" value="' . htmlspecialchars($pedidob['nombreb']) . '">
-                        <button class="borde-v" type="submit">Eliminar</button>
-                      </form><br>';
+    <br>
+
+    <div class="text-center">
+
+        <!-- Mensaje de respuesta -->
+        <?php if (!empty($message)): ?>
+            <div class="alert alert-info m-3" role="alert">
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Mostrar Menú de Comidas con opción de eliminar -->
+        
+        <h2>Listado de Comidas</h2>
+
+        <?php
+        $archivo = "acafeteria.json";
+        if (file_exists($archivo)) {
+            $contenido = file_get_contents($archivo);
+            $resultado = json_decode($contenido, true); 
+
+            if ($resultado !== null) {
+                foreach ($resultado as $pedido) {
+                    echo "<hr>";
+                    echo "<b>Nombre:</b> " . htmlspecialchars($pedido['nombre']) . "<br>";
+                    echo "<b>Descripción:</b> " . htmlspecialchars($pedido['descripcion']) . "<br>";
+                    echo "<b>Precio:</b> " . htmlspecialchars($pedido['precio']) . "<br>";
+                    echo '<form method="post">
+                            <input type="hidden" name="eliminar_nombre" value="' . htmlspecialchars($pedido['nombre']) . '">
+                            <button class="borde-v" type="submit">Eliminar</button>
+                        </form>';
+                }
+                echo "<hr>";
             }
         }
-    }
-    ?>
+        ?>
+
+        <br>
+        <br>
+
+        <!-- Mostrar Menú de Bebidas con opción de eliminar -->
+        <h2>Listado de Bebidas</h2>
+        <div class="">
+        <?php
+        $archivob = "acafeteriabebidas.json";
+        if (file_exists($archivob)) {
+            $contenidob = file_get_contents($archivob);
+            $resultadob = json_decode($contenidob, true); 
+
+            if ($resultadob !== null) {
+                foreach ($resultadob as $pedidob) {
+                    echo "<hr>";
+                    echo "<b>Nombre:</b> " . htmlspecialchars($pedidob['nombreb']) . "<br>";
+                    echo "<b>Descripción:</b> " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
+                    echo "<b>Precio:</b> " . htmlspecialchars($pedidob['preciob']) . "<br>";
+                    echo '<form method="post">
+                            <input type="hidden" name="eliminar_nombreb" value="' . htmlspecialchars($pedidob['nombreb']) . '">
+                            <button class="borde-v" type="submit">Eliminar</button>
+                        </form>';
+                    
+                }
+                echo "<hr>";
+            }
+        }
+        ?>
+
+        </div>
 
     </div>
+
 </body>
 </html>
 

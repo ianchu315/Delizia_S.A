@@ -158,7 +158,7 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
             <label for="precio">Precio:</label>
             <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
             <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
+            <button class="borde-v" type="submit">Agregar</button>
         </form>
     </div>
 
@@ -177,7 +177,7 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
             <label for="preciob">Precio:</label>
             <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
             <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
+            <button class="borde-v" type="submit">Agregar</button>
         </form>
     </div>
 
@@ -200,12 +200,12 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
 
         if ($resultado !== null) {
             foreach ($resultado as $pedido) {
-                echo "Nombre: " . htmlspecialchars($pedido['nombre']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedido['descripcion']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedido['precio']) . "<br>";
+                echo "<b>Nombre:</b> " . htmlspecialchars($pedido['nombre']) . "<br>";
+                echo "<b>Descripción:</b> " . htmlspecialchars($pedido['descripcion']) . "<br>";
+                echo "<b>Precio:</b> " . htmlspecialchars($pedido['precio']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombre" value="' . htmlspecialchars($pedido['nombre']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
+                        <button class="borde-v" type="submit">Eliminar</button>
                       </form><br>';
             }
         }
@@ -222,12 +222,12 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
         $resultadob = json_decode($contenidob, true); 
         if ($resultadob !== null) {
             foreach ($resultadob as $pedidob) {
-                echo "Nombre: " . htmlspecialchars($pedidob['nombreb']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedidob['preciob']) . "<br>";
+                echo "<b>Nombre:</b> " . htmlspecialchars($pedidob['nombreb']) . "<br>";
+                echo "<b>Descripción:</b> " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
+                echo "<b>Precio:</b> " . htmlspecialchars($pedidob['preciob']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombreb" value="' . htmlspecialchars($pedidob['nombreb']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
+                        <button class="borde-v" type="submit">Eliminar</button>
                       </form><br>';
             }
         }
@@ -236,4 +236,6 @@ if (isset($_POST['nombreb']) && isset($_POST['descripcionb']) && isset($_POST['p
     </div>
 </body>
 </html>
+
+
 

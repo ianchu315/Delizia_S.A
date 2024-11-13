@@ -22,7 +22,7 @@ body{
     background-image: url(./img/background.jpg);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 3%;
     background-color: var(--violeta); 

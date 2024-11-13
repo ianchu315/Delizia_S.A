@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="precio">Precio:</label>
             <input type="number" name="precio" id="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
             <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
+            <button class="borde-v" type="submit">Agregar</button>
         </form>
     </div>
 
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="preciob">Precio:</label>
             <input type="number" name="preciob" id="preciob" value="<?php echo htmlspecialchars($preciob); ?>" required>
             <br>
-            <button class="btn btn-secondary" type="submit">Agregar</button>
+            <button class="borde-v" type="submit">Agregar</button>
         </form>
     </div>
 
@@ -197,7 +197,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <!-- Mostrar Menú de Comidas con opción de eliminar -->
+
     <h2>Listado de Comidas</h2>
+
     <div class="text-center">
     <?php
     $archivo = "aheladeria.json";
@@ -207,18 +209,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($resultado !== null) {
             foreach ($resultado as $pedido) {
-                echo "Nombre: " . htmlspecialchars($pedido['nombre']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedido['descripcion']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedido['precio']) . "<br>";
+                echo "<hr>";
+                echo "<b>Nombre:</b> " . htmlspecialchars($pedido['nombre']) . "<br>";
+                echo "<b>Descripción:</b> " . htmlspecialchars($pedido['descripcion']) . "<br>";
+                echo "<b>Precio:</b> " . htmlspecialchars($pedido['precio']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombre" value="' . htmlspecialchars($pedido['nombre']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
-                      </form><br>';
+                        <button class="borde-v" type="submit">Eliminar</button>
+                      </form>';
             }
+            echo "<hr>";
         }
     }
     ?>
+
     </div>
+
+    <br>
+    <br>
 
     <!-- Mostrar Menú de Bebidas con opción de eliminar -->
     <h2>Listado de Bebidas</h2>
@@ -231,14 +239,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($resultadob !== null) {
             foreach ($resultadob as $pedidob) {
-                echo "Nombre: " . htmlspecialchars($pedidob['nombreb']) . "<br>";
-                echo "Descripción: " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
-                echo "Precio: " . htmlspecialchars($pedidob['preciob']) . "<br>";
+                echo "<hr>";
+                echo "<b>Nombre:</b> " . htmlspecialchars($pedidob['nombreb']) . "<br>";
+                echo "<b>Descripción:</b> " . htmlspecialchars($pedidob['descripcionb']) . "<br>";
+                echo "<b>Precio:</b> " . htmlspecialchars($pedidob['preciob']) . "<br>";
                 echo '<form method="post">
                         <input type="hidden" name="eliminar_nombreb" value="' . htmlspecialchars($pedidob['nombreb']) . '">
-                        <button class="btn btn-secondary" type="submit">Eliminar</button>
-                      </form><br>';
+                        <button class="borde-v" type="submit">Eliminar</button>
+                      </form>';
             }
+            echo "<hr>";
         }
     }
     ?>

@@ -294,15 +294,12 @@ if (!isset($_SESSION['nombre']) || !isset($_SESSION['apellido'])) {
 <br>
 <br>
 
-<<<<<<< Updated upstream
-<div class="container">
-=======
 <div class="g-pedido">
->>>>>>> Stashed changes
+
     <div id="cart-container"></div>
     <div class="contenido">
         <h3>Total: $<span id="total">0.00</span></h3>
-        <button class="boton-v" onclick="saveOrder()">Guardar Pedido</button>
+        <button class="borde-v" onclick="saveOrder()">Guardar Pedido</button>
     </div>
 </div>
 

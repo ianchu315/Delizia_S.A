@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cartas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Restaurant Bartolome</title>
+    <title>Restaurante | Bartolome</title>
 </head>
 <body>
 
@@ -16,7 +17,11 @@
     </div>
 </header>
 
-<center><h2>Bartolome</h2></center>
+<br>
+
+<center><h2 style="text-decoration: underline #A631D4; font-size: 300%; font-family: 'Austten'">Bartolome</h2></center>
+
+<div class="margin-l">
 
 <?php
 $archivoJson = "cartabartolome.json";
@@ -54,7 +59,10 @@ if (file_exists($archivoJson)) {
             $total = htmlspecialchars($comanda->total);
             $entregado = !empty($comanda->entregado);
 
-            echo "<h2>Comanda " . ($entregado ? "✓" : "") . "</h2>";
+            echo "<br>";
+            echo "<br>";
+
+            // echo "<h2>Comanda " . ($entregado ? "✓" : "") . "</h2>";
             echo "<p><strong>Nombre:</strong> $nombre $apellido</p>";
             echo "<p><strong>Hora:</strong> $hora</p>";
             echo "<p><strong>Mesa:</strong> $mesa</p>";
@@ -75,12 +83,12 @@ if (file_exists($archivoJson)) {
             if (!$entregado) {
                 echo "<form method='post' class='d-inline'>";
                 echo "<input type='hidden' name='indice_comanda_entregado' value='$index'>";
-                echo "<button type='submit' class='btn btn-success'>Marcar como Entregado</button>";
+                echo "<button type='submit' class='borde-v'>Marcar como Entregado</button>";
                 echo "</form>";
             }
             echo "<form method='post' class='d-inline ml-2'>";
             echo "<input type='hidden' name='indice_comanda_borrar' value='$index'>";
-            echo "<button type='submit' class='btn btn-danger'>Eliminar Comanda</button>";
+            echo "<button type='submit' class='borde-v'>Eliminar Comanda</button>";
             echo "</form><hr>";
         }
     } else {
@@ -90,6 +98,8 @@ if (file_exists($archivoJson)) {
     echo "<p>El archivo JSON no existe.</p>";
 }
 ?>
+
+</div>
 
 </body>
 </html>

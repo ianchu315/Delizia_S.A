@@ -78,11 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
     <br>
     <center>
-           <h2>Cafeteria:Nautilus_2023</h2>
+           <h2>Cafeteria: Nautilus_2023</h2>
            <br>
-           <h2>Heladeria:Felicia_2024</h2>
+           <h2>Heladeria: Felicia_2024</h2>
            <br>
-           <h2>RestaurantBartolome_2025</h2>
+           <h2>Restaurante: Bartolome_2025</h2>
            <br>
     </center>
 </body>

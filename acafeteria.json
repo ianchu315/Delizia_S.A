@@ -1,10 +1,5 @@
 [
     {
-        "nombre": "Lemon Pie",
-        "descripcion": "Porcion mediana",
-        "precio": 400
-    },
-    {
         "nombre": "Caf\u00e9 con medialunas",
         "descripcion": "cortado",
         "precio": 2500
